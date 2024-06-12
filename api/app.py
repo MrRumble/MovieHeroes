@@ -17,9 +17,9 @@ CORS(app)
 
 db = mongo.db.test
 
-# @app.route("/", methods=["GET", "POST"])
-# def getpost():
-#     return "Welcome to Movie Hero"
+@app.route("/", methods=["GET", "POST"])
+def getpost():
+    return "Welcome to Movie Hero"
 
 
 # These lines start the server if you run this file directly

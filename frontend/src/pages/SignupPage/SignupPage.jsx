@@ -1,13 +1,13 @@
-// import { useState } from "react";
+import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import validatePassword from "./passValidator";
 // import { signup } from "../../services/authentication";
 //import "./SignupPage.css";
 
 const SignupPage = () => {
-// const [name, setName] = useState("");
-// const [email, setEmail] = useState("");
-// const [password, setPassword] = useState("");
+const [fullName, setFullName] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
 // const [passwordError, setPasswordError] = useState("");
 // // const [validationError, setValidationError] = useState("");
 // // const [profilePicture, setProfilePicture] = useState(null);
@@ -27,14 +27,27 @@ const SignupPage = () => {
 // //     setProfilePicture(event.target.files[0]);
 // // };
 
-// const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     console.log("Form submitted");
 
-//     if (passwordError) {
-//     setValidationError('Please correct the errors before submitting.');
-//     return;
-//     }
+    const handleFullNameChange = (event) => {
+        setFullName(event.target.value);
+    };
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value)
+    }
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log("Form submitted");
+    
+        // if (passwordError) {
+        // setValidationError('Please correct the errors before submitting.');
+        return;
+        }
+
 
 //     const formData = new FormData();
 //     formData.append('firstName', firstName);
@@ -91,31 +104,30 @@ const SignupPage = () => {
 return (
     <div className="signup-title"> 
     <h2>Sign Up for Your Free Account!</h2>
-    <form >
-    {/* onSubmit={handleSubmit} */}
-        <label htmlFor="firstName">First Name:</label>
+    <form onSubmit={handleSubmit} >
+        <label htmlFor="fullName">Full Name:</label>
         <input
-        placeholder="First Name"
-        id="firstName"
+        placeholder="Enter your full name..."
+        id="fullName"
         type="text"
-        // value={firstName}
-        // onChange={handleFirstNameChange}
+        value={fullName}
+        onChange={handleFullNameChange}
         />
         <label htmlFor="email">Email:</label>
         <input
         placeholder="user@email.com"
         id="email"
         type="email"
-        // value={email}
-        // onChange={handleEmailChange}
+        value={email}
+        onChange={handleEmailChange}
         />
         <label htmlFor="password">Password:</label>
         <input
         placeholder="Password"
         id="password"
         type="password"
-        // value={password}
-        // onChange={handlePasswordChange}
+        value={password}
+        onChange={handlePasswordChange}
         />
         
         {/* <label htmlFor="profilePicture">Profile Picture:</label>

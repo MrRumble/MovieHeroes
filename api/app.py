@@ -25,6 +25,7 @@ db = mongodb_client.db
 
 from routes.landing_page import *
 from routes.signup import *
+
 from routes.tmdb_trending_page import *
 
 # These lines start the server if you run this file directly

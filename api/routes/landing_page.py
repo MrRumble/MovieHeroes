@@ -5,5 +5,5 @@ import requests
 
 @app.route("/", methods=["GET"])
 def getpost():   # Will be refactored later to point to top 12 films from db.
-    pass
+    return "Post" 
 

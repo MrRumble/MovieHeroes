@@ -14,6 +14,7 @@ const [password, setPassword] = useState("");
 // const navigate = useNavigate();
 
 // // const handlePasswordChange = (event) => {
+
 // //     const value = event.target.value;
 // //     setPassword(value);
 // //     if (!validatePassword(value)) {
@@ -47,59 +48,6 @@ const [password, setPassword] = useState("");
         // setValidationError('Please correct the errors before submitting.');
         return;
         }
-
-
-//     const formData = new FormData();
-//     formData.append('firstName', firstName);
-//     formData.append('lastName', lastName);
-//     formData.append('email', email);
-//     formData.append('password', password);
-//     formData.append('DOB', DOB);
-//     formData.append('gender', gender);
-//     formData.append('profilePicture', profilePicture);
-
-//     try {
-//     console.log("Submitting form data", formData);
-//     await signup(formData);
-//     console.log("redirecting...");
-//     navigate("/login");
-//     } catch (err) {
-//     console.error("Signup error:", err);
-//     if (err.response && err.response.status === 409) {
-//         setValidationError('Email already exists. Please use a different email.');
-//     } else {
-//         setValidationError('Something went wrong, please try again.');
-//     }
-//     }
-// };
-
-// const handleFirstNameChange = (event) => {
-//     setFirstName(event.target.value);
-// };
-// const handleLastNameChange = (event) => {
-//     setLastName(event.target.value);
-// };
-// const handleEmailChange = (event) => {
-//     setEmail(event.target.value);
-// };
-// const handleDOBChange = (event) => {
-//     setDOB(event.target.value);
-// };
-// const handleGenderChange = (event) => {
-//     setGender(event.target.value);
-// };
-
-// const getMinDOB = () => {
-//     const today = new Date();
-//     today.setFullYear(today.getFullYear() - 100);
-//     return today.toISOString().split('T')[0];
-// };
-
-// const getMaxDOB = () => {
-//     const today = new Date();
-//     today.setFullYear(today.getFullYear() - 13);
-//     return today.toISOString().split('T')[0];
-// };
 
 return (
     <div className="signup-title"> 

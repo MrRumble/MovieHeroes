@@ -50,8 +50,13 @@ def getpost():
         print(f"Failed to fetch data. Status code: {response.status_code}")
     return jsonify(all_movies)
 
+@app.route("/movie_page", methods=['GET'])
+def getmovies():
+    return "This is the movie page!"
+
 
 from routes.signup import *
+
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

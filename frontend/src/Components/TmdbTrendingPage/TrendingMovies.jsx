@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 
-const AllMovies = () => {
-    const [allMovies, setAllMovies] = useState([]);
+const TrendingMovies = () => {
+    const [TrendingMovies, setTrendingMovies] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5001/")
+        fetch("http://localhost:5001/tmdb-trending")
           .then(res => res.json())  // Use .text() to handle plain text response
           .then(data => {
-            setAllMovies(data);
+            setTrendingMovies(data);
           })
           .catch(error => {
             console.error("Error fetching data:", error);
@@ -19,7 +19,7 @@ const AllMovies = () => {
             {/* <p>{allMovies}</p> */}
 
             <ul>
-                {allMovies.map((movie, index) => (
+                {TrendingMovies.map((movie, index) => (
                     <li key={index}>{movie.title} 
                     <img src={movie.poster_url }></img>
                     {/* <a href= $"{}" > 
@@ -32,4 +32,4 @@ const AllMovies = () => {
     );
 };
 
-export default AllMovies
+export default TrendingMovies

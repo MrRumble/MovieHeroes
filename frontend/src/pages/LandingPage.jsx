@@ -1,10 +1,9 @@
-import AllMovies from "../Components/LandingPage/allMovies";
 import Navbar from "../Components/Navbar";
 const LandingPage = () => {
     return (
       <>
       <Navbar/>
-      <AllMovies/>
+      <h1>MOVIE HEROES</h1>
       </>
     )
 };

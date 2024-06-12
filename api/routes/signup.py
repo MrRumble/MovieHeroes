@@ -1,5 +1,5 @@
 from app import app
 
-@app.route("/", methods=["GET", "POST"])
-def getpost():
+@app.route("/signup", methods=["GET", "POST"])
+def getpostSignup():
     return "Welcome to Movie Hero"

@@ -13,6 +13,18 @@ const Navbar = () => {
     navigate("/Login");
   };
 
+  const handleAbout = () => {
+    navigate("/About");
+  };
+
+  const handleSignup = () => {
+    navigate("/signup");
+  };
+
+  const handleTmdb = () => {
+    navigate("/tmdb-trending");
+  };
+
 // //   const handleLogout = () => {
 // //     localStorage.removeItem("token");
 // //     navigate("/login");
@@ -30,12 +42,16 @@ const Navbar = () => {
             Login
           </button>
       
-        <button className="signup-button">
+        <button className="signup-button" onClick={handleSignup}>
           Signup
         </button>
 
-        <button className="About-button">
+        <button className="About-button" onClick={handleAbout}>
           About
+        </button>
+
+        <button className="Tmdb-button" onClick={handleTmdb}>
+          TMDB Trending
         </button>
       </div>
     </nav>

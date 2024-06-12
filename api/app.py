@@ -1,26 +1,28 @@
 import os
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo, ObjectId
+from dotenv import load_dotenv
 from flask_cors import CORS
-# from bson import ObjectID
-import json
 
 
+load_dotenv()
 # Create a new Flask app
 app = Flask(__name__)
-# connect you mongodb after installation
-app.config['MONGO_URI'] = "mongodb+srv://jetheesan:k6SvJayBqigNXLZS@cluster0.ilhubw3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+app.config['SECRET_KEY'] = os.getenv('JWT_SECRET')
+app.config['MONGO_URI'] = os.getenv('MONGODB_URL')
 
-mongo = PyMongo(app)
+# # Access environment variables
+# flask_env = os.getenv('FLASK_ENV')
+# mongodb_url = os.getenv('MONGODB_URL')
+# jwt_secret = os.getenv('JWT_SECRET')
 
 CORS(app)
 
-db = mongo.db.test
+mongodb_client = PyMongo(app)
+db = mongodb_client.db
 
-@app.route("/", methods=["GET", "POST"])
-def getpost():
-    return "Welcome to Movie Hero"
 
+from routes.signup import *
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

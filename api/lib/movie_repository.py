@@ -1,6 +1,7 @@
 from lib.movie import Movie
 from lib import database_connection
 from pymongo import DESCENDING
+from flask import jsonify
 
 class MovieRepository:
     def __init__(self):
@@ -19,28 +20,16 @@ class MovieRepository:
             found_movie["release_date"]
             )
     
-    def find_top_twelve_movies(self):
+    def find_top_movies(self):
         movies = self.db["Movie_Heros"]
-        sorted_db_vote_average = movies.find().sort("vote_average", DESCENDING).limit(12)
+        sorted_db_vote_average = movies.find().sort("vote_average", DESCENDING).limit(12) #limit can be catered to our needs
         movies_as_dicts = list(sorted_db_vote_average)
-        print(type(sorted_db_vote_average))
-        print(type(movies_as_dicts[0]))
-        movies_objects = []
         for movie in movies_as_dicts:
-            movie_to_add = Movie(
-                movie["id"],
-                movie["title"],
-                movie["overview"],
-                movie["poster_path"],
-                movie["backdrop_path"],
-                movie["vote_average"],
-                movie["release_date"]
-            )
-            movies_objects.append(movie_to_add)
-        return movies_objects
+            movie['_id'] = str(movie['_id'])
+        return movies_as_dicts
 
 
     
 movies = MovieRepository()
 print(movies.find_movie_by_id(238))
-print(movies.find_top_twelve_movies())
+

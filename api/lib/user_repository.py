@@ -17,13 +17,22 @@ class UserRepository():
             'full_name': user.full_name,
             'email': user.email,
             'password': hashed_password.decode("utf-8") 
-        }
-                
+        }  
         result = self.db.users.insert_one(user_data)
         user.id = result.inserted_id
         user.password = hashed_password.decode("utf-8") 
-
         return user
+    
+    def email_exists(self, email):
+        user = self.db.users.find_one({'email': email})
+        print("!!!!!!!!!!!",user)
+        if user:
+            self.user_details_errors['email'] = "Email address already exists. Try another one!"
+            return True
+        return False
+
+# # Initialize the validator with your MongoDB connection URI and database name
+# validator = UserValidator(mongo_uri="your_mongo_uri", db_name="your_db_name")
 
 #     #Find user information by using a user id
 #     #id: user id within the database table

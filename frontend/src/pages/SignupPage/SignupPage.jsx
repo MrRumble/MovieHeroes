@@ -9,7 +9,8 @@ const [fullName, setFullName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [userErrors, setUserErrors] = useState({})
-const [isFocused, setIsFocused] = useState(false); 
+const [isFocused, setIsFocused] = useState(false);
+const [resp, setResp] = useState("")
 const navigate = useNavigate();
 
     const handleFullNameChange = (event) => {
@@ -37,9 +38,14 @@ const navigate = useNavigate();
         event.preventDefault();
         console.log("Form submitted");
         try {
-            await signup(fullName, email, password);
+            const response = await signup(fullName, email, password);
+            if(typeof(response) === "string"){
+                setResp(response)
+            }else{
             console.log("redirecting...:");
+                setResp("")
             navigate("/"); // add login later
+            }
         } catch (err) {
             console.error(err);
             navigate("/signup");
@@ -68,6 +74,14 @@ return (
         onFocus={handleOnFocus}
         onBlur={handleBlur}
         />
+        <div>
+            {resp? 
+            <p>{resp}</p>
+            :
+            null
+            }
+        </div>
+
         <div>
             {userErrors.email_errors && userErrors.email_errors.length > 0 && !isFocused && (
                 <div>

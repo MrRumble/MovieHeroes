@@ -22,8 +22,9 @@ def find_similar_movies(movie_id, X, k, metric='cosine', show_distance=False):
 	neighbour_ids.pop(0)
 	return neighbour_ids
 
-movies = pd.read_csv("./ml-latest-small/movies.csv")
-ratings = pd.read_csv("./ml-latest-small/ratings.csv")
+movies = pd.read_csv("../ml-latest-small/movies.csv")
+links = pd.read_csv("../ml-latest-small/links.csv") 
+ratings = pd.read_csv("../ml-latest-small/ratings.csv")
 
 X, user_mapper, movie_mapper, user_inv_mapper, movie_inv_mapper = create_matrix(ratings)
 
@@ -31,7 +32,9 @@ X, user_mapper, movie_mapper, user_inv_mapper, movie_inv_mapper = create_matrix(
 
 movie_titles = dict(zip(movies['movieId'], movies['title']))
 
-movie_id = 3
+
+movie_id = links.loc[links['tmdbId'] == 238, 'movieId'].item()
+
 
 similar_ids = find_similar_movies(movie_id, X, k=10)
 movie_title = movie_titles[movie_id]

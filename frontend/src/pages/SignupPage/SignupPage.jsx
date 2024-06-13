@@ -1,7 +1,7 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import validatePassword from "./passValidator";
-// import { signup } from "../../services/authentication";
+import { signup } from "../../services/authentication";
 //import "./SignupPage.css";
 
 const SignupPage = () => {
@@ -11,7 +11,7 @@ const [password, setPassword] = useState("");
 // const [passwordError, setPasswordError] = useState("");
 // // const [validationError, setValidationError] = useState("");
 // // const [profilePicture, setProfilePicture] = useState(null);
-// const navigate = useNavigate();
+const navigate = useNavigate();
 
 // // const handlePasswordChange = (event) => {
 
@@ -43,11 +43,15 @@ const [password, setPassword] = useState("");
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("Form submitted");
-    
-        // if (passwordError) {
-        // setValidationError('Please correct the errors before submitting.');
-        return;
+        try {
+            await signup(fullName, email, password);
+            console.log("redirecting...:");
+            navigate("/"); // add login later
+        } catch (err) {
+            console.error(err);
+            navigate("/signup");
         }
+    }
 
 return (
     <div className="signup-title"> 

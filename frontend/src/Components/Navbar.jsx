@@ -25,6 +25,10 @@ const Navbar = () => {
     navigate("/tmdb-trending");
   };
 
+  const handleHome = () => {
+    navigate ("/");
+  }
+
 // //   const handleLogout = () => {
 // //     localStorage.removeItem("token");
 // //     navigate("/login");
@@ -37,6 +41,10 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar">
+        <button className="Home-button" onClick={handleHome}>
+          Home
+        </button>
+
 
           <button className="profile-button" onClick={handleLogin}>
             Login

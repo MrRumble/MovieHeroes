@@ -1,9 +1,12 @@
 from app import app
 from flask import Flask, request, jsonify, redirect
 from dotenv import load_dotenv
-import requests
+from lib.movie_repository import MovieRepository
+from flask_cors import CORS
 
-@app.route("/", methods=["GET"])
-def getpost():   # Will be refactored later to point to top 12 films from db.
-    return "Post" 
+@app.route("/landing-page", methods=["GET"])
+def get_top_movies(): 
+    movie_repo = MovieRepository()
+    top_movies = movie_repo.find_top_movies()
+    return top_movies
 

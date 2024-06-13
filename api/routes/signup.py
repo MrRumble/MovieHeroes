@@ -1,12 +1,8 @@
 from app import app
 from flask import request, jsonify
-from lib.user_repository import UserRepository
+from lib.user_repository import *
 from lib.user import User
 import lib.database_connection as database_connection
-
-@app.route("/signup", methods=["GET"])
-def getpostSignup():
-    return "Welcome to Movie Hero"
 
 @app.route("/signup", methods=["POST"])
 def signup():
@@ -18,13 +14,18 @@ def signup():
     if not full_name or not email or not password:
         return jsonify({'error': 'Please provide full name, email, and password'}), 400
 
-    user = User(full_name, email, password)
-    print(user)
     user_repo = UserRepository(connection=database_connection)
-    new_user = user_repo.create(user)
 
-    return jsonify({
-        'id': str(new_user.id),
-        'full_name': new_user.full_name,
-        'email': new_user.email,
-    }), 201
+    email_check = user_repo.email_exists(email)
+
+    if email_check == True:
+        email_error = user_repo.user_details_errors['email']
+        return jsonify({'email_exist': email_error}),500
+    else:
+        user = User(full_name, email, password)
+        new_user = user_repo.create(user)
+        return jsonify({
+                'id': str(new_user.id),
+                'full_name': new_user.full_name,
+                'email': new_user.email,
+            }), 201

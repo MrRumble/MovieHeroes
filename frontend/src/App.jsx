@@ -6,6 +6,7 @@ import MoviePage from "./pages/MoviePage/MoviePage";
 
 import Aboutpage from "./pages/AboutPage/Aboutpage";
 import TmdbTrendingPage from "./pages/TmdbTrendingPage/TmdbTrendingPage";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([
@@ -16,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage/>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage/>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage/>,
   },
   {
     path: "/movie_page/:id",

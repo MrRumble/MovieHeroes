@@ -6,9 +6,9 @@ class MovieRepository:
     def __init__(self, db):
         self.db = db 
 
-    def find_movie_by_id(self, id):
-        movies = self.db["Movie_Heros"]
-        found_movie = movies.find_one({"id": int(id)})
+    def find_movie_by_id(self, id, movie_table = "Movie_Heros") :
+        movies = self.db[movie_table]
+        found_movie = movies.find_one({"id": id})
         return Movie(
             found_movie["id"],
             found_movie["title"],
@@ -19,9 +19,9 @@ class MovieRepository:
             found_movie["release_date"]
             )
     
-    def find_top_movies(self):
-        movies = self.db["Movie_Heros"]
-        sorted_db_vote_average = movies.find().sort("vote_average", DESCENDING).limit(12) #limit can be catered to our needs
+    def find_top_movies(self, num_of_movies, movie_table = "Movie_Heros"):
+        movies = self.db[movie_table]
+        sorted_db_vote_average = movies.find().sort("vote_average", DESCENDING).limit(num_of_movies) #limit can be catered to our needs
         movies_as_dicts = list(sorted_db_vote_average)
         for movie in movies_as_dicts:
             movie['_id'] = str(movie['_id'])

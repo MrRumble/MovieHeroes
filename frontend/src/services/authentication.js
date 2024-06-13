@@ -17,13 +17,17 @@ export const signup = async (fullName, email, password) => {
 
     let response = await fetch(`${BACKEND_URL}/signup`, requestOptions);
 
+    const data = await response.json()
+
     // docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
     if (response.status === 201) {
-    return;
-    } else {
-    throw new Error(
-        `Received status ${response.status} when signing up. Expected 201`
-    );
+        return;
+    } else if (response.status === 500){
+        return data.email_exist
+    }else{
+        throw new Error(
+            `Received status ${response.status} when signing up. Expected 201`
+        );
     }
 };
 

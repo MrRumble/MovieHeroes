@@ -10,7 +10,7 @@ const Navbar = () => {
 
 
   const handleLogin = () => {
-    navigate("/Login");
+    navigate("/login");
   };
 
   const handleAbout = () => {

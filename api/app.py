@@ -3,7 +3,7 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 from flask_cors import CORS
-# from users import users_bp
+
 
 load_dotenv()
 # Create a new Flask app
@@ -18,8 +18,6 @@ db = mongodb_client.db
 
 from routes.signup import *
 from routes.landing_page import *
-from routes.signup import *
-
 from routes.tmdb_trending_page import *
 
 # These lines start the server if you run this file directly

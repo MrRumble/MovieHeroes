@@ -1,6 +1,5 @@
 from app import app
-from flask import Blueprint, request, jsonify
-from pydantic import ValidationError
+from flask import request, jsonify
 from lib.user_repository import UserRepository
 from lib.user import User
 import lib.database_connection as database_connection
@@ -15,9 +14,6 @@ def signup():
     full_name = data.get('full_name')
     email = data.get('email')
     password = data.get('password')
-    print(full_name)
-    print(email)
-    print(password)
 
     if not full_name or not email or not password:
         return jsonify({'error': 'Please provide full name, email, and password'}), 400

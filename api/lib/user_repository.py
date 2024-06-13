@@ -1,5 +1,5 @@
 from lib.user import User
-import hashlib
+import bcrypt
 from lib.database_connection import get_db
 
 class UserRepository():
@@ -9,20 +9,20 @@ class UserRepository():
 
     #Create a new user
     #user: an instance of User class object
-    def create(self, user):
-        binary_password = user.password.encode("utf-8")
-        hashed_password = hashlib.sha256(binary_password).hexdigest()
-        
+    def create(self, user):        
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(user.password.encode("utf-8"), salt)
+
         user_data = {
             'full_name': user.full_name,
             'email': user.email,
-            'password': hashed_password
+            'password': hashed_password.decode("utf-8") 
         }
-        
-        
+                
         result = self.db.users.insert_one(user_data)
         user.id = result.inserted_id
-        user.password = hashed_password
+        user.password = hashed_password.decode("utf-8") 
+
         return user
 
 #     #Find user information by using a user id

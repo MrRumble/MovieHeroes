@@ -3,8 +3,6 @@ from pymongo.server_api import ServerApi
 import os
 from dotenv import load_dotenv
 
-
-                          
 def get_db():
     # Replace the placeholder with your Atlas connection string
     load_dotenv()

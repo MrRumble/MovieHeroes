@@ -1,20 +1,29 @@
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-export const signup = async (formData) => {
-    const requestOptions = {
-    method: "POST",
-    body: formData, // FormData automatically sets the correct headers
+export const signup = async (fullName, email, password) => {
+    const payload = {
+    full_name: fullName,
+    email: email,
+    password: password,
     };
 
-    let response = await fetch(`${BACKEND_URL}/users`, requestOptions);
+    const requestOptions = {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+    };
 
-    // Check if the response is successful
+    let response = await fetch(`${BACKEND_URL}/signup`, requestOptions);
+
+    // docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
     if (response.status === 201) {
-        return;
+    return;
     } else {
-        throw new Error(
+    throw new Error(
         `Received status ${response.status} when signing up. Expected 201`
-        );
+    );
     }
 };
 

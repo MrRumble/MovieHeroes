@@ -1,33 +1,16 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import validatePassword from "./passValidator";
-// import { signup } from "../../services/authentication";
+import { useNavigate } from "react-router-dom";
+import handleErrors from "../HandleErrors";
+import { signup } from "../../services/authentication";
 //import "./SignupPage.css";
 
 const SignupPage = () => {
 const [fullName, setFullName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-// const [passwordError, setPasswordError] = useState("");
-// // const [validationError, setValidationError] = useState("");
-// // const [profilePicture, setProfilePicture] = useState(null);
-// const navigate = useNavigate();
-
-// // const handlePasswordChange = (event) => {
-
-// //     const value = event.target.value;
-// //     setPassword(value);
-// //     if (!validatePassword(value)) {
-// //     setPasswordError('Password must be at least 7 characters long, contain one uppercase letter, and one of {!$%&}');
-// //     } else {
-// //     setPasswordError('');
-// //     }
-// // };
-
-// // const handleProfileImgChange = (event) => {
-// //     setProfilePicture(event.target.files[0]);
-// // };
-
+const [userErrors, setUserErrors] = useState({})
+const [isFocused, setIsFocused] = useState(false); 
+const navigate = useNavigate();
 
     const handleFullNameChange = (event) => {
         setFullName(event.target.value);
@@ -40,14 +23,28 @@ const [password, setPassword] = useState("");
         setEmail(event.target.value);
     };
 
+    const handleOnFocus = () => { 
+        setIsFocused(true); 
+    }; 
+
+    const handleBlur = () => { 
+        setIsFocused(false);
+        const errors = handleErrors(password, email)
+        setUserErrors(()=>errors)
+    }; 
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("Form submitted");
-    
-        // if (passwordError) {
-        // setValidationError('Please correct the errors before submitting.');
-        return;
+        try {
+            await signup(fullName, email, password);
+            console.log("redirecting...:");
+            navigate("/"); // add login later
+        } catch (err) {
+            console.error(err);
+            navigate("/signup");
         }
+    }
 
 return (
     <div className="signup-title"> 
@@ -68,7 +65,18 @@ return (
         type="email"
         value={email}
         onChange={handleEmailChange}
+        onFocus={handleOnFocus}
+        onBlur={handleBlur}
         />
+        <div>
+            {userErrors.email_errors && userErrors.email_errors.length > 0 && !isFocused && (
+                <div>
+                    {userErrors.email_errors.map((error, index) => (
+                        <p key={index}>{error}</p>
+                    ))}
+                </div>
+            )}<br/>
+        </div>
         <label htmlFor="password">Password:</label>
         <input
         placeholder="Password"
@@ -76,16 +84,18 @@ return (
         type="password"
         value={password}
         onChange={handlePasswordChange}
+        onFocus={handleOnFocus}
+        onBlur={handleBlur}
         />
-        
-        {/* <label htmlFor="profilePicture">Profile Picture:</label>
-        <input 
-        id="profilePicture"
-        type="file"
-        onChange={handleProfileImgChange}
-        />
-        {passwordError && <div className="error-message">{passwordError}</div>}
-        {validationError && <div className="error-message">{validationError}</div>}  */}
+        <div>
+            {userErrors.pwd_errors && userErrors.pwd_errors.length > 0 && !isFocused && (
+                <div>
+                    {userErrors.pwd_errors.map((error, index) => (
+                        <p key={index}>{error}</p>
+                    ))}
+                </div>
+            )}<br />
+        </div>
         <input role="submit-button" id="submit" type="submit" value="Submit" />
     </form>
     </div>

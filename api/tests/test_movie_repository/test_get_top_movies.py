@@ -1,6 +1,4 @@
 from lib.movie_repository import MovieRepository
-import json
-import os
 import datetime
 
 """
@@ -9,7 +7,7 @@ test that shows the top 2 movies from the test database
 
 def test_find_top_movies_returns_top_movies():
     movie_repo =MovieRepository()
-    result = movie_repo.find_top_movies("test_movie_database")
+    result = movie_repo.find_top_movies(3,"test_movie_database")
     expected_result = [
   {
     "_id": "666af5493ea95c2d6684bd78",

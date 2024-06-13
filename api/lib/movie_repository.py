@@ -7,8 +7,8 @@ class MovieRepository:
     def __init__(self):
         self.db = database_connection.get_db()
 
-    def find_movie_by_id(self, id):
-        movies = self.db["Movie_Heros"]
+    def find_movie_by_id(self, id, movie_table = "Movie_Heros") :
+        movies = self.db[movie_table]
         found_movie = movies.find_one({"id": id})
         return Movie(
             found_movie["id"],
@@ -31,5 +31,5 @@ class MovieRepository:
 
     
 movies = MovieRepository()
-# print(movies.find_movie_by_id(238))
+print(movies.find_movie_by_id(238, "test_movie_database"))
 

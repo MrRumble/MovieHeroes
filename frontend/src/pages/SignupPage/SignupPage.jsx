@@ -54,64 +54,57 @@ const navigate = useNavigate();
 
 return (
     <div className="signup-title"> 
-    <h2>Sign Up for Your Free Account!</h2>
-    <form onSubmit={handleSubmit} >
-        <label htmlFor="fullName">Full Name:</label>
-        <input
-        placeholder="Enter your full name..."
-        id="fullName"
-        type="text"
-        value={fullName}
-        onChange={handleFullNameChange}
-        />
-        <label htmlFor="email">Email:</label>
-        <input
-        placeholder="user@email.com"
-        id="email"
-        type="email"
-        value={email}
-        onChange={handleEmailChange}
-        onFocus={handleOnFocus}
-        onBlur={handleBlur}
-        />
-        <div>
-            {resp? 
-            <p>{resp}</p>
-            :
-            null
-            }
-        </div>
-
-        <div>
-            {userErrors.email_errors && userErrors.email_errors.length > 0 && !isFocused && (
-                <div>
-                    {userErrors.email_errors.map((error, index) => (
-                        <p key={index}>{error}</p>
-                    ))}
-                </div>
-            )}<br/>
-        </div>
-        <label htmlFor="password">Password:</label>
-        <input
-        placeholder="Password"
-        id="password"
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-        onFocus={handleOnFocus}
-        onBlur={handleBlur}
-        />
-        <div>
-            {userErrors.pwd_errors && userErrors.pwd_errors.length > 0 && !isFocused && (
-                <div>
-                    {userErrors.pwd_errors.map((error, index) => (
-                        <p key={index}>{error}</p>
-                    ))}
-                </div>
-            )}<br />
-        </div>
-        <input role="submit-button" id="submit" type="submit" value="Submit" />
-    </form>
+        <h2>Sign Up for Your Free Account!</h2>
+        <form onSubmit={handleSubmit} >
+            <label htmlFor="fullName">Full Name:</label>
+            <input
+                placeholder="Enter your full name..."
+                id="fullName"
+                type="text"
+                value={fullName}
+                onChange={handleFullNameChange}
+            />
+            <label htmlFor="email">Email:</label>
+            <input
+                placeholder="user@email.com"
+                id="email"
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                onFocus={handleOnFocus}
+                onBlur={handleBlur}
+            />
+            <div>{resp? <p>{resp}</p> : null}</div>
+            <div>
+                {userErrors.email_errors && userErrors.email_errors.length > 0 && !isFocused && (
+                    <div>
+                        {userErrors.email_errors.map((error, index) => (
+                            <p key={index}>{error}</p>
+                        ))}
+                    </div>
+                )}<br/>
+            </div>
+            <label htmlFor="password">Password:</label>
+            <input
+                placeholder="Password"
+                id="password"
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+                onFocus={handleOnFocus}
+                onBlur={handleBlur}
+            />
+            <div>
+                {userErrors.pwd_errors && userErrors.pwd_errors.length > 0 && !isFocused && (
+                    <div>
+                        {userErrors.pwd_errors.map((error, index) => (
+                            <p key={index}>{error}</p>
+                        ))}
+                    </div>
+                )}<br />
+            </div>
+            <input role="submit-button" id="submit" type="submit" value="Submit" />
+        </form>
     </div>
 );
 };

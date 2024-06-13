@@ -44,7 +44,7 @@ const navigate = useNavigate();
             }else{
             console.log("redirecting...:");
                 setResp("")
-            navigate("/"); // add login later
+            navigate("/login");
             }
         } catch (err) {
             console.error(err);

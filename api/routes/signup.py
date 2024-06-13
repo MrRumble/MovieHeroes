@@ -32,7 +32,7 @@ def signup():
     if email_check == True:
         email_error = user_repo.user_details_errors['email']
         print("this is the email_error", email_error)
-        return email_error
+        return jsonify({'email_exist': email_error}),500
     else:
         user = User(full_name, email, password)
         print(user)

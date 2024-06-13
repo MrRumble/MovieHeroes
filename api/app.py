@@ -28,6 +28,8 @@ from routes.signup import *
 
 from routes.tmdb_trending_page import *
 
+from routes.movie_page import *
+
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
 # if started in test mode.

@@ -9,7 +9,6 @@ def get_db():
     # Replace the placeholder with your Atlas connection string
     load_dotenv()
     uri = os.getenv("MONGODB_URL")
-    print(uri)
 
     # Set the Stable API version when creating a new client
     client = MongoClient(uri, server_api=ServerApi('1'))

@@ -1,14 +1,14 @@
-import movie
-import database_connection  
+from lib.movie import Movie
+from lib.database_connection import get_db
 
 class MovieRepository:
-    def __init__(self):
-        self.db = database_connection.get_db()
+    def __init__(self, db):
+        self.db = db 
 
     def find_movie_by_id(self, id):
         movies = self.db["Movie_Heros"]
-        found_movie = movies.find_one({"id": id})
-        return movie.Movie(
+        found_movie = movies.find_one({"id": int(id)})
+        return Movie(
             found_movie["id"],
             found_movie["title"],
             found_movie["overview"],
@@ -17,6 +17,3 @@ class MovieRepository:
             found_movie["vote_average"],
             found_movie["release_date"]
             )
-
-movies = MovieRepository()
-print(movies.find_movie_by_id(238))

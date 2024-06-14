@@ -17,6 +17,7 @@ mongodb_client = PyMongo(app)
 db = mongodb_client.db
 
 from routes.signup import *
+from routes.login import *
 from routes.landing_page import *
 from routes.tmdb_trending_page import *
 

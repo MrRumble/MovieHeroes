@@ -16,7 +16,7 @@ const TopMovies = () => {
       }, []);
 
     return (
-        <div className="home">
+        <div className="">
 
             {/* <p>{allMovies}</p> */}
 

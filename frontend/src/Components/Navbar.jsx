@@ -37,6 +37,12 @@ const Navbar = () => {
     navigate("/myprofile");
   };
 
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate('/login');  // Redirect to the login page after logging out
+};
+
   return (
     <nav>
       <div className="navbar">
@@ -46,7 +52,7 @@ const Navbar = () => {
           </button>
         )}
 
-        {currentPage !== "/login" && (
+        {currentPage !== "/login" && currentPage === "/signup" && (
           <button className="profile-button" onClick={handleLogin}>
             Login
           </button>
@@ -80,9 +86,12 @@ const Navbar = () => {
         )}
 
         {currentPage !== "/myprofile" && (
+          <>
           <button className="Myprofile-button" onClick={handleProfile}>
             My Profile
           </button>
+          <button className="nav-button" onClick={logOut}>Sign Out</button>
+          </>
         )}
       </div>
     </nav>

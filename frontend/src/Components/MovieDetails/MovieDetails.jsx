@@ -31,6 +31,17 @@ const MovieDetails = () => {
             <p>{movie.overview}</p>
             <p><strong>Release Date:</strong> {movie.release_date}</p>
             <p><strong>Genre:</strong> {movie.genre}</p>
+            <ul>
+                {movie.similar.map((movie, index) => (
+                    <li key={index}>
+                        <p>{movie.title}</p>
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                    {/* <a href= $"{}" > 
+                    </a> */}
+                    </li>
+                ))}
+            </ul>
+
         </div>
     );
 };

@@ -21,7 +21,6 @@ class LinkRepository:
         rows = connection.find()
         links = []
         for row in rows:
-            print(row)
             link = Link(row["movieId"], row["tmdbId"])
             links.append(link)
         df = pd.DataFrame.from_records([link.__dict__ for link in links])

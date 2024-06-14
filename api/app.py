@@ -12,30 +12,6 @@ from utils.create_matrix import create_matrix
 from utils.movie_recommendations import find_similar_movies 
 import pandas as pd
 
-db = get_db()
-movies_db = MovieRepository(db)
-all_movies = movies_db.find_all()
-movies = pd.DataFrame.from_records([movie.__dict__ for movie in all_movies])
-ratings = RatingRepository(db).all_ratings()
-
-X, user_mapper, movie_mapper, user_inv_mapper, movie_inv_mapper = create_matrix(ratings)
-
-movie_titles = dict(zip(movies['id'], movies['title']))
-
-
-movie_id = 238 
-
-
-similar_ids = find_similar_movies(movie_id, X, k=10)
-movie_title = movie_titles[movie_id]
-
-print(f"Since you watched {movie_title}")
-for i in similar_ids:
-	print(movie_titles[i])
-
-
-
-
 
 
 

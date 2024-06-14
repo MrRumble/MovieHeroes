@@ -10,7 +10,7 @@ from lib.database_connection import get_db
 from lib.link_repository import LinkRepository
 
 
-def find_similar_movies(movie_id, X, k, metric='cosine', show_distance=False):
+def find_similar_movies(movie_id, movie_mapper, movie_inv_mapper, X, k, metric='cosine', show_distance=False):
 
 	neighbour_ids = []
 

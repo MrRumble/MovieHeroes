@@ -44,11 +44,8 @@ class UserRepository():
             print("Auth Error: Passwords do not match")
             return jsonify({"message": "Password incorrect"}), 401
         else :
-            token = "selva"
+            user_id_str = str(user['_id']) 
+            token = generate_token(user_id_str)
             return jsonify({"token": token, "message": "OK", "userId": str(user['_id'])}), 201
 
-
-
-
-# generate_token(user['_id'])
 

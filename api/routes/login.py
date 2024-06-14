@@ -16,7 +16,6 @@ def login():
     user_repo = UserRepository(connection=database_connection)
 
     user_check = user_repo.user_exists(email,password)
-    print("this is the user_check)",user_check)
     
     return user_check
     

@@ -1,6 +1,7 @@
 from flask import g, request, jsonify
 from lib.token import decode_token
 from functools import wraps
+import jwt
 
 def token_checker(f):
     @wraps(f)
@@ -23,7 +24,10 @@ def token_checker(f):
 
     return decorated_function
 
-@app.route('/protected', methods=['GET'])
-@token_checker
-def protected_route():
-    return jsonify({'message': 'This is a protected route', 'user_id': g.user_id})
+
+
+# Example of @token_checker application to our roots
+# @app.route('/protected', methods=['GET'])
+# @token_checker
+# def protected_route():
+#     return jsonify({'message': 'This is a protected route', 'user_id': g.user_id})

@@ -27,7 +27,6 @@ const handleSubmit = async (event) => {
             setErrorMessage(loginResponse)
         }else{
             console.log("redirecting...:");
-            console.log("loginResponse",loginResponse)
             localStorage.setItem("token", loginResponse.token);
             localStorage.setItem("userId", loginResponse.userId);
             setErrorMessage("")

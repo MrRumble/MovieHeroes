@@ -8,7 +8,7 @@ class MovieRepository:
 
     def find_movie_by_id(self, id, movie_table = "Movie_Heros") :
         movies = self.db[movie_table]
-        found_movie = movies.find_one({"id": int(id)})
+        found_movie = movies.find_one({"id": id})
         return Movie(
             found_movie["id"],
             found_movie["title"],

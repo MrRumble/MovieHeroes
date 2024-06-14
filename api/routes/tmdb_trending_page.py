@@ -27,7 +27,8 @@ def get_tmdb_trending():
         for movie in movies:
             movie_info = {
                 'title': movie.get('title'),
-                'poster_url': f"https://image.tmdb.org/t/p/w500{movie.get('poster_path')}"
+                'poster_url': f"https://image.tmdb.org/t/p/w500{movie.get('poster_path')}",
+                'backdrop_url': f"https://image.tmdb.org/t/p/w1280{movie.get('backdrop_path')}"
             }
             all_movies.append(movie_info)
     else:

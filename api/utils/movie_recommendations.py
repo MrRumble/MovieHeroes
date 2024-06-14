@@ -8,15 +8,17 @@ from lib.movie_repository import MovieRepository
 from lib.movie import Movie 
 from lib.database_connection import get_db
 from lib.link_repository import LinkRepository
+import time
 
 
-def find_similar_movies(movie_id, movie_mapper, movie_inv_mapper, X, k, metric='cosine', show_distance=False):
+def find_similar_movies(movie_id, db, movie_mapper, movie_inv_mapper, X, k, metric='cosine', show_distance=False):
 
 	neighbour_ids = []
 
-	db = get_db()
+	link_repo = LinkRepository(db)
+	connection = db["links"]
 
-	movie_id = LinkRepository(db).to_movieId(movie_id)
+	movie_id = link_repo.to_movieId(movie_id, connection)
 
 	movie_ind = movie_mapper[movie_id]
 	movie_vec = X[movie_ind]
@@ -27,7 +29,7 @@ def find_similar_movies(movie_id, movie_mapper, movie_inv_mapper, X, k, metric='
 	neighbour = kNN.kneighbors(movie_vec, return_distance=show_distance)
 	for i in range(0,k):
 		n = neighbour.item(i)
-		neighbour_ids.append(LinkRepository(db).to_tmdb_id(movie_inv_mapper[n]))
+		neighbour_ids.append(link_repo.to_tmdb_id(movie_inv_mapper[n], connection))
 	neighbour_ids.pop(0)
 	return neighbour_ids
 

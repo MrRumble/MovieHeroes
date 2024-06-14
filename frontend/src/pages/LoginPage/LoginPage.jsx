@@ -21,12 +21,15 @@ const handlePasswordChange = (event) => {
 
 const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
         const loginResponse = await login(email, password);
         if(typeof(loginResponse) === "string"){
             setErrorMessage(loginResponse)
         }else{
             console.log("redirecting...:");
+            localStorage.setItem("token", loginResponse.token);
+            localStorage.setItem("userId", loginResponse.userId);
             setErrorMessage("")
             navigate("/");//user homePage
         }

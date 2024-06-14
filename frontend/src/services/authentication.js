@@ -49,6 +49,8 @@ export const login = async (email, password) => {
 
     const data = await response.json();
 
+    console.log("response.status", response.status)
+
     if (response.status === 201) {
         return;
     }else if(response.message === "User not found") {

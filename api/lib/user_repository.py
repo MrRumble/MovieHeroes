@@ -2,6 +2,7 @@ from lib.user import User
 import bcrypt
 from lib.database_connection import get_db
 from flask import jsonify
+from lib.token import *
 
 class UserRepository():
     def __init__(self, connection):

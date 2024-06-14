@@ -2,12 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import "./LoginPage.css"; // Import the CSS file
 import { login } from "../../services/authentication";
+import { Link } from 'react-router-dom';
 
 export const LoginPage = () => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [errorMessage, setErrorMessage] = useState(""); // State variable for error message
 const navigate = useNavigate();
+
+const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+};
+
+const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+};
 
 const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,20 +25,11 @@ const handleSubmit = async (event) => {
     localStorage.setItem("token", loginResponse.token);
     localStorage.setItem("userId", loginResponse.userId);
 
-
     navigate("/posts");
     } catch (err) {
     console.error(err);
     setErrorMessage("Incorrect email or password"); // Set error message
     }
-};
-
-const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-};
-
-const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
 };
 
 return (
@@ -55,6 +55,11 @@ return (
             <input role="submit-button" id="submit" type="submit" value="login" />
             {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Render error message if present */}
         </form>
+
+        <div>
+            <p> If you do not have an account</p>
+            <Link to="/signup">Signup</Link>
+        </div>
         </div>
     </div>
     </>

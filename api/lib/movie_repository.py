@@ -1,15 +1,14 @@
 from lib.movie import Movie
-from lib import database_connection
 from pymongo import DESCENDING
 from flask import jsonify
 
 class MovieRepository:
-    def __init__(self):
-        self.db = database_connection.get_db()
+    def __init__(self, db):
+        self.db = db 
 
     def find_movie_by_id(self, id, movie_table = "Movie_Heros") :
         movies = self.db[movie_table]
-        found_movie = movies.find_one({"id": id})
+        found_movie = movies.find_one({"id": int(id)})
         return Movie(
             found_movie["id"],
             found_movie["title"],
@@ -28,8 +27,14 @@ class MovieRepository:
             movie['_id'] = str(movie['_id'])
         return movies_as_dicts
 
-
-    
-movies = MovieRepository()
-print(movies.find_movie_by_id(238, "test_movie_database"))
-
+    def find_all(self):
+        connection = self.db["Movie_Heros"]
+        rows = connection.find()
+        movies = []
+        for row in rows:
+            poster_path = row.get("poster_path", "")
+            backdrop_path = row.get("backdrop_path", "")
+            overview = row.get("overview", "")
+            movie = Movie(row["id"], row["title"], overview, poster_path, backdrop_path, row["vote_average"], row["release_date"])
+            movies.append(movie)
+        return movies

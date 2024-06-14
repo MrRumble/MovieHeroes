@@ -7,6 +7,6 @@ from flask_cors import CORS
 @app.route("/landing-page", methods=["GET"])
 def get_top_movies(): 
     movie_repo = MovieRepository()
-    top_movies = movie_repo.find_top_movies()
+    top_movies = movie_repo.find_top_movies(12)
     return top_movies
 

@@ -3,10 +3,10 @@ import "./App.css";
 import LandingPage from './pages/LandingPage'
 import SignupPage from "./pages/SignupPage/SignupPage";
 import MoviePage from "./pages/MoviePage/MoviePage";
-
 import Aboutpage from "./pages/AboutPage/Aboutpage";
 import TmdbTrendingPage from "./pages/TmdbTrendingPage/TmdbTrendingPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
+import NavBarLogin from "./Components/NavBarLogin/NavBarLogin";
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([
@@ -16,11 +16,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <SignupPage/>,
+    element: 
+    <>
+      <NavBarLogin />
+      <SignupPage/>
+    </>,
   },
   {
     path: "/login",
-    element: <LoginPage/>,
+    element: 
+    <>
+      <NavBarLogin />
+      <LoginPage/>
+    </>,
   },
   {
     path: "/movie_page",

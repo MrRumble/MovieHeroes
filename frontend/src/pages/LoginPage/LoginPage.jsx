@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import "./LoginPage.css"; // Import the CSS file
 import { login } from "../../services/authentication";
+import { Link } from 'react-router-dom';
 
 export const LoginPage = () => {
 const [email, setEmail] = useState("");
@@ -55,6 +56,11 @@ return (
             <input role="submit-button" id="submit" type="submit" value="login" />
             {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Render error message if present */}
         </form>
+
+        <div>
+            <p> If you do not have an account</p>
+            <Link to="/signup">Signup</Link>
+        </div>
         </div>
     </div>
     </>

@@ -1,12 +1,14 @@
 from lib.movie_repository import MovieRepository
 import datetime
+from lib.database_connection import get_db
 
 """
 test that shows the top 2 movies from the test database
 """
 
 def test_find_top_movies_returns_top_movies():
-    movie_repo =MovieRepository()
+    db = get_db()
+    movie_repo =MovieRepository(db)
     result = movie_repo.find_top_movies(3,"test_movie_database")
     expected_result = [
   {

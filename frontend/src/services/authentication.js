@@ -45,14 +45,15 @@ export const login = async (email, password) => {
     body: JSON.stringify(payload),
     };
 
-    const response = await fetch(`${BACKEND_URL}/tokens`, requestOptions);
+    const response = await fetch(`${BACKEND_URL}/login`, requestOptions);
 
-    if (response.status === 200) {
-    let data = await response.json();
-    return data;
+    const data = await response.json();
+
+    if (response.status === 201) {
+        return;
+    }else if(response.message === "User not found") {
+        return data.message;
     } else {
-    throw new Error(
-        `Received status ${response.status} when logging in. Expected 200`
-    );
+        return data.message;
     }
 };

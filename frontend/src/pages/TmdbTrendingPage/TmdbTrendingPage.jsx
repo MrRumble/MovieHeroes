@@ -4,7 +4,6 @@ const TmdbTrendingPage = () => {
     return (
         <>
         <Navbar/>
-        <h1>MOVIE HEROES</h1>
         <h2>TMDBs Current Trending films</h2>
         <TrendingMovies/>
         </>

@@ -1,20 +1,24 @@
-import { useNavigate } from "react-router-dom";
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-// import "./Navbar.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "./NavBar.css";
+import MovieHero from "../assets/MovieHero.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
-//   const location = useLocation();
-//   const currentPath = location.pathname;
+  const location = useLocation();
+  const [currentPage, setCurrentPage] = useState("");
 
+  // Update currentPage based on location.pathname changes
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
 
   const handleLogin = () => {
     navigate("/login");
   };
 
   const handleAbout = () => {
-    navigate("/About");
+    navigate("/about");
   };
 
   const handleSignup = () => {
@@ -26,45 +30,63 @@ const Navbar = () => {
   };
 
   const handleHome = () => {
-    navigate ("/");
-  }
+    navigate("/");
+  };
 
-// //   const handleLogout = () => {
-// //     localStorage.removeItem("token");
-// //     navigate("/login");
-// //   };
-
-//   const handleFeed = () => {
-//     navigate("/posts");
-//   };
+  const handleProfile = () => {
+    navigate("/myprofile");
+  };
 
   return (
     <nav>
       <div className="navbar">
-        <button className="Home-button" onClick={handleHome}>
-          Home
-        </button>
+        {currentPage !== "/" && (
+          <button className="Home-button" onClick={handleHome}>
+            Home
+          </button>
+        )}
 
-
+        {currentPage !== "/login" && (
           <button className="profile-button" onClick={handleLogin}>
             Login
           </button>
-      
-        <button className="signup-button" onClick={handleSignup}>
-          Signup
-        </button>
+        )}
 
-        <button className="About-button" onClick={handleAbout}>
-          About
-        </button>
+        {currentPage !== "/signup" && (
+          <button className="signup-button" onClick={handleSignup}>
+            Signup
+          </button>
+        )}
 
-        <button className="Tmdb-button" onClick={handleTmdb}>
-          TMDB Trending
-        </button>
+        <h1>
+          <img
+            src={MovieHero}
+            className="navbar-logo"
+            alt="Movie Heroe logo"
+          />
+          MovieHeroes
+        </h1>
+
+        {currentPage !== "/about" && (
+          <button className="About-button" onClick={handleAbout}>
+            About
+          </button>
+        )}
+
+        {currentPage !== "/tmdb-trending" && (
+          <button className="Tmdb-button" onClick={handleTmdb}>
+            TMDB Trending
+          </button>
+        )}
+
+        {currentPage !== "/myprofile" && (
+          <button className="Myprofile-button" onClick={handleProfile}>
+            My Profile
+          </button>
+        )}
       </div>
     </nav>
   );
 };
-
 
 export default Navbar;

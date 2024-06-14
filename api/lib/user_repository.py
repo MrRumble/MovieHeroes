@@ -9,7 +9,7 @@ class UserRepository():
 
     #Create a new user
     #user: an instance of User class object
-    def create(self, user):        
+    def create(self, user, table_name = 'users'):        
         salt = bcrypt.gensalt()
         hashed_password = bcrypt.hashpw(user.password.encode("utf-8"), salt)
 
@@ -18,7 +18,7 @@ class UserRepository():
             'email': user.email,
             'password': hashed_password.decode("utf-8") 
         }  
-        result = self.db.users.insert_one(user_data)
+        result = self.db[table_name].insert_one(user_data)
         user.id = result.inserted_id
         user.password = hashed_password.decode("utf-8") 
         return user
@@ -30,3 +30,4 @@ class UserRepository():
             self.user_details_errors['email'] = "Email address already exists. Try another one!"
             return True
         return False
+    

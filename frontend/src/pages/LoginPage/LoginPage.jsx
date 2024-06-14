@@ -10,21 +10,6 @@ const [password, setPassword] = useState("");
 const [errorMessage, setErrorMessage] = useState(""); // State variable for error message
 const navigate = useNavigate();
 
-const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-    const loginResponse = await login(email, password);
-    localStorage.setItem("token", loginResponse.token);
-    localStorage.setItem("userId", loginResponse.userId);
-
-
-    navigate("/posts");
-    } catch (err) {
-    console.error(err);
-    setErrorMessage("Incorrect email or password"); // Set error message
-    }
-};
-
 const handleEmailChange = (event) => {
     setEmail(event.target.value);
 };
@@ -32,6 +17,23 @@ const handleEmailChange = (event) => {
 const handlePasswordChange = (event) => {
     setPassword(event.target.value);
 };
+
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        const loginResponse = await login(email, password);
+        if(typeof(loginResponse) === "string"){
+            setErrorMessage(loginResponse)
+        }else{
+            console.log("redirecting...:");
+            setErrorMessage("")
+            navigate("/");//user homePage
+        }
+    } catch (err) {
+        console.error(err);
+        navigate("/login");
+    }
+}
 
 return (
     <>

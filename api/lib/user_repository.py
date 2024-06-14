@@ -24,8 +24,8 @@ class UserRepository():
         return user
     
     #Checks if the user already exists in our db
-    def email_exists(self, email):
-        user = self.db.users.find_one({'email': email})
+    def email_exists(self, email, table_name = 'users'):
+        user = self.db[table_name].find_one({'email': email})
         if user:
             self.user_details_errors['email'] = "Email address already exists. Try another one!"
             return True

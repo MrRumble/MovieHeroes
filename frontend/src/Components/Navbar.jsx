@@ -8,82 +8,63 @@ const Navbar = () => {
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("");
 
-  // Update currentPage based on location.pathname changes
   useEffect(() => {
     setCurrentPage(location.pathname);
   }, [location.pathname]);
 
-  const handleLogin = () => {
-    navigate("/login");
-  };
-
-  const handleAbout = () => {
-    navigate("/about");
-  };
-
-  const handleSignup = () => {
-    navigate("/signup");
-  };
-
-  const handleTmdb = () => {
-    navigate("/tmdb-trending");
-  };
-
-  const handleHome = () => {
-    navigate("/");
-  };
-
-  const handleProfile = () => {
-    navigate("/myprofile");
+  const handleNavigation = (path) => {
+    navigate(path);
   };
 
   return (
     <nav>
       <div className="navbar">
-        {currentPage !== "/" && (
-          <button className="Home-button" onClick={handleHome}>
-            Home
-          </button>
-        )}
-
-        {currentPage !== "/login" && (
-          <button className="profile-button" onClick={handleLogin}>
-            Login
-          </button>
-        )}
-
-        {currentPage !== "/signup" && (
-          <button className="signup-button" onClick={handleSignup}>
-            Signup
-          </button>
-        )}
-
         <h1>
           <img
             src={MovieHero}
             className="navbar-logo"
-            alt="Movie Heroe logo"
+            alt="Movie Hero logo"
           />
           MovieHeroes
         </h1>
-
-        {currentPage !== "/about" && (
-          <button className="About-button" onClick={handleAbout}>
+        <div className="nav-links">
+          <span
+            className={`nav-link ${currentPage === "/" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/")}
+          >
+            Home
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/login" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/login")}
+          >
+            Login
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/signup" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/signup")}
+          >
+            Signup
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/about" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/about")}
+          >
             About
-          </button>
-        )}
-
-        {currentPage !== "/tmdb-trending" && (
-          <button className="Tmdb-button" onClick={handleTmdb}>
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/tmdb-trending" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/tmdb-trending")}
+          >
             TMDB Trending
-          </button>
-        )}
-
-        {currentPage !== "/myprofile" && (
-          <button className="Myprofile-button" onClick={handleProfile}>
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/myprofile" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/myprofile")}
+          >
             My Profile
-          </button>
-        )}
+          </span>
+        </div>
       </div>
     </nav>
   );

@@ -10,44 +10,40 @@
     top: 0;
     z-index: 1000;
     margin-top: 30px;
-
     border-radius: 25px;
-}
-
-.navbar-logo {
+  }
+  
+  .navbar-logo {
     width: 50px;
     margin-right: 10px;
-}
-
-.navbar h1 {
+  }
+  
+  .navbar-title {
     display: flex;
     align-items: center;
-    font-size: 40px;
-    margin: 0;
-}
-
-.nav-links {
+  }
+  
+  .nav-links {
     display: flex;
     justify-content: space-between; /* Evenly space out the links */
     flex: 1; /* Allow the links to expand and take up available space */
     margin-left: 20px; /* Adjust spacing from the logo */
-}
-
-.nav-link {
+  }
+  
+  .nav-link {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-link:hover {
+  }
+  
+  .nav-link:hover {
     color: #b19cd9; /* Hover color */
     transform: scale(1.1); /* Scale effect on hover */
-}
-
-.nav-link.active::after,
-.nav-link:hover::after {
+  }
+  
+  .nav-link:hover::after {
     content: '';
     position: absolute;
     left: 0;
@@ -56,15 +52,11 @@
     height: 2px;
     background-color: #b19cd9; /* Purple color */
     animation: glow 1s infinite alternate; /* Animation for glowing effect */
-}
-
-@keyframes glow {
-    from {
-        opacity: 0.8;
-        transform: scaleX(1);
-    }
-    to {
-        opacity: 1;
-        transform: scaleX(1.1);
-    }
-}
+  }
+  
+  .logged-in-as {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 10px; /* Adjust margin as needed */
+  }
+  

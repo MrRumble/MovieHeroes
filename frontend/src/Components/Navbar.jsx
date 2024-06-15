@@ -1,5 +1,5 @@
-import { useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import MovieHero from "../assets/MovieHero.png";
 
@@ -7,10 +7,19 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     setCurrentPage(location.pathname);
   }, [location.pathname]);
+
+  useEffect(() => {
+    // Retrieve userName from localStorage
+    const storedUserName = localStorage.getItem("full_name");
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -26,6 +35,9 @@ const Navbar = () => {
             alt="Movie Hero logo"
           />
           MovieHeroes
+          {userName && (
+            <span className="logged-in-as">Logged in as: {userName}</span>
+          )}
         </h1>
         <div className="nav-links">
           <span

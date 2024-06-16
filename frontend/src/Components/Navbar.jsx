@@ -1,5 +1,5 @@
-import { useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import MovieHero from "../assets/MovieHero.png";
 
@@ -7,34 +7,29 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("");
+  const [userName, setUserName] = useState("");
 
-  // Update currentPage based on location.pathname changes
   useEffect(() => {
     setCurrentPage(location.pathname);
   }, [location.pathname]);
 
-  const handleLogin = () => {
-    navigate("/login");
+  useEffect(() => {
+    // Retrieve userName from localStorage
+    const storedUserName = localStorage.getItem("full_name");
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
+
+  const handleNavigation = (path) => {
+    navigate(path);
   };
 
-  const handleAbout = () => {
-    navigate("/about");
-  };
-
-  const handleSignup = () => {
-    navigate("/signup");
-  };
-
-  const handleTmdb = () => {
-    navigate("/tmdb-trending");
-  };
-
-  const handleHome = () => {
-    navigate("/");
-  };
-
-  const handleProfile = () => {
-    navigate("/myprofile");
+  const handleLogout = () => {
+    // Clear localStorage
+    localStorage.clear();
+    navigate("/"); // Navigate to the landing page once logged out
+    setUserName("");
   };
 
   const logOut = () => {
@@ -46,6 +41,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar">
+
         {currentPage !== "/" && (
           <button className="Home-button" onClick={handleHome}>
             Home
@@ -65,33 +61,71 @@ const Navbar = () => {
         )}
 
         <h1>
+
+        <h1 className="navbar-title">
+
           <img
             src={MovieHero}
             className="navbar-logo"
-            alt="Movie Heroe logo"
+            alt="Movie Hero logo"
           />
           MovieHeroes
         </h1>
-
-        {currentPage !== "/about" && (
-          <button className="About-button" onClick={handleAbout}>
+        <div className="nav-links">
+          <span
+            className={`nav-link ${currentPage === "/" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/")}
+          >
+            Home
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/about" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/about")}
+          >
             About
-          </button>
-        )}
-
-        {currentPage !== "/tmdb-trending" && (
-          <button className="Tmdb-button" onClick={handleTmdb}>
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/tmdb-trending" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/tmdb-trending")}
+          >
             TMDB Trending
-          </button>
-        )}
-
-        {currentPage !== "/myprofile" && (
-          <>
-          <button className="Myprofile-button" onClick={handleProfile}>
-            My Profile
-          </button>
-          <button className="nav-button" onClick={logOut}>Sign Out</button>
           </>
+
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/myprofile" ? 'active' : ''}`}
+            onClick={() => {
+              if (userName) {
+                handleNavigation("/myprofile");
+              } else {
+                handleNavigation("/signup");
+              }
+            }}
+          >
+            My Profile
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/login" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/login")}
+          >
+            Login
+          </span>
+          <span
+            className={`nav-link ${currentPage === "/signup" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/signup")}
+          >
+            Signup
+          </span>
+          {userName && (
+            <button className="nav-link" onClick={handleLogout}>
+              Logout
+            </button>
+          )}
+        </div>
+        {userName && (
+          <div className="logged-in-as">
+            Logged in as: {userName}
+          </div>
         )}
       </div>
     </nav>

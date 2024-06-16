@@ -1,7 +1,62 @@
 .navbar {
     display: flex;
-    justify-content: space-around; /* Adjust spacing between items */
-    align-items: center; /* Center items vertically */
-    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #edafed;
+    box-shadow: 0 4px 6px rgba(123, 78, 78, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-top: 30px;
+    border-radius: 25px;
+  }
+  
+  .navbar-logo {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .navbar-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: space-between; /* Evenly space out the links */
+    flex: 1; /* Allow the links to expand and take up available space */
+    margin-left: 20px; /* Adjust spacing from the logo */
+  }
+  
+  .nav-link {
     color: #fff;
-}
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #b19cd9; /* Hover color */
+    transform: scale(1.1); /* Scale effect on hover */
+  }
+  
+  .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust this value to move the underline position */
+    width: 100%;
+    height: 2px;
+    background-color: #b19cd9; /* Purple color */
+    animation: glow 1s infinite alternate; /* Animation for glowing effect */
+  }
+  
+  .logged-in-as {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 10px; /* Adjust margin as needed */
+  }
+  

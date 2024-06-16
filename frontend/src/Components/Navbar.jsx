@@ -32,38 +32,10 @@ const Navbar = () => {
     setUserName("");
   };
 
-  const logOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    navigate('/login');  // Redirect to the login page after logging out
-};
-
   return (
     <nav>
       <div className="navbar">
-
-        {currentPage !== "/" && (
-          <button className="Home-button" onClick={handleHome}>
-            Home
-          </button>
-        )}
-
-        {currentPage !== "/login" && currentPage === "/signup" && (
-          <button className="profile-button" onClick={handleLogin}>
-            Login
-          </button>
-        )}
-
-        {currentPage !== "/signup" && (
-          <button className="signup-button" onClick={handleSignup}>
-            Signup
-          </button>
-        )}
-
-        <h1>
-
         <h1 className="navbar-title">
-
           <img
             src={MovieHero}
             className="navbar-logo"
@@ -89,8 +61,6 @@ const Navbar = () => {
             onClick={() => handleNavigation("/tmdb-trending")}
           >
             TMDB Trending
-          </>
-
           </span>
           <span
             className={`nav-link ${currentPage === "/myprofile" ? 'active' : ''}`}

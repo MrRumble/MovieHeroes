@@ -11,7 +11,7 @@ def signup():
     email = data.get('email')
     password = data.get('password')
 
-    if not full_name or not email or not password:
+    if not full_name or not email or not password :
         return jsonify({'error': 'Please provide full name, email, and password'}), 400
 
     user_repo = UserRepository(connection=database_connection)

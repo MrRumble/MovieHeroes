@@ -15,10 +15,14 @@ class UserRepository():
         salt = bcrypt.gensalt()
         hashed_password = bcrypt.hashpw(user.password.encode("utf-8"), salt)
 
+        highest_user_id = self.get_highest_user_id()
+        next_user_id = 611 if highest_user_id is None else highest_user_id + 1
+
         user_data = {
             'full_name': user.full_name,
             'email': user.email,
-            'password': hashed_password.decode("utf-8") 
+            'password': hashed_password.decode("utf-8") ,
+            'userId': next_user_id
         }  
         result = self.db[table_name].insert_one(user_data)
         user.id = result.inserted_id
@@ -50,3 +54,8 @@ class UserRepository():
             # James: Added in full_name and email to JSON to be able to use for "Myprofile" page
 
 
+    def get_highest_user_id(self):
+        highest_user = self.db.users.find_one(sort=[("userId", -1)])
+        if highest_user:
+            return highest_user['userId']
+        return None

@@ -7,6 +7,7 @@ import Aboutpage from "./pages/AboutPage/Aboutpage";
 import TmdbTrendingPage from "./pages/TmdbTrendingPage/TmdbTrendingPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import NavBarLogin from "./Components/NavBarLogin/NavBarLogin";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([
@@ -43,8 +44,12 @@ const router = createBrowserRouter([
     element: <Aboutpage/>
   },
   {
-    path: "/tmdb-trending",
+    path: "/tmdb_trending",
     element: <TmdbTrendingPage/>
+  },
+  {
+    path: "/my_profile",
+    element: <MyProfile/>
   }
 ]);
 

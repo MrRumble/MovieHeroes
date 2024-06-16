@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   const handleTmdb = () => {
-    navigate("/tmdb-trending");
+    navigate("/tmdb_trending");
   };
 
   const handleHome = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   const handleProfile = () => {
-    navigate("/myprofile");
+    navigate("/my_profile");
   };
 
   return (
@@ -79,7 +79,7 @@ const Navbar = () => {
           </button>
         )}
 
-        {currentPage !== "/myprofile" && (
+        {currentPage !== "/my_profile" && (
           <button className="Myprofile-button" onClick={handleProfile}>
             My Profile
           </button>

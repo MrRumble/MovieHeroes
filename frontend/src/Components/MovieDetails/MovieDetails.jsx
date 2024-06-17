@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Ratings from '../Ratings/Ratings';
+
 const MovieDetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -29,6 +31,7 @@ const MovieDetails = () => {
             <h1>{movie.title}</h1>
             <h3>Overview:</h3>
             <p>{movie.overview}</p>
+            <Ratings/>
             <p><strong>Release Date:</strong> {movie.release_date}</p>
             <p><strong>Genre:</strong> {movie.genre}</p>
             <ul>

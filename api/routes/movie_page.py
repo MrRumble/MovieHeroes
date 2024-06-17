@@ -8,6 +8,7 @@ from lib.rating import Rating
 from lib.rating_repository import RatingRepository
 from utils.create_matrix import create_matrix
 from utils.movie_recommendations import find_similar_movies 
+from lib.user_repository import *
 import pandas as pd
 import time 
 
@@ -38,3 +39,17 @@ def getMovie(id):
         found_movie["similar"].append(similar_movie)
 
     return jsonify(found_movie)
+
+
+@app.route('/movie_page/<movie_id>', methods=['POST'])
+def rate_movie(movie_id):
+    db = get_db()
+    data = request.json
+    user_id = data.get('userId')
+    rating = data.get('rating')
+    user = UserRepository(db)
+    user_id = user.get_user_id_from_object_id(int(user_id))
+    print('jeifhegfheiofghaeoifhioeafhioeafhiaeufhaeiufhaeiuf')
+    print(f"User {user_id} rated movie {movie_id} with {rating} stars")
+    return jsonify({'message': 'Rating submitted successfully'})
+

@@ -59,3 +59,7 @@ class UserRepository():
         if highest_user:
             return highest_user['userId']
         return None
+    
+    def get_user_id_from_object_id(self, objectId):
+        user = self.db.users.find_one({"_id": int(objectId)})
+        return user['userId']

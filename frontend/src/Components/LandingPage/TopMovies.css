@@ -1,0 +1,74 @@
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    gap: 20px; /* Gap between movie tiles */
+    padding: 20px; /* Padding around the container */
+}
+
+.movie-tile {
+    position: relative;
+    overflow: hidden; /* Ensure image doesn't overflow */
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.movie-tile img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.movie-tile:hover {
+    transform: scale(1.05); /* Scale up slightly on hover */
+}
+
+.movie-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align items at the top and bottom */
+    align-items: flex-start;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-sizing: border-box; /* Ensure padding is included in width and height */
+}
+
+.movie-tile:hover .movie-info {
+    opacity: 1; /* Show movie info on hover */
+}
+
+.movie-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: left; /* Align title to the left */
+    width: 100%; /* Ensure text fills the container */
+    overflow-wrap: break-word; /* Allow long titles to wrap */
+}
+
+.movie-info p {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    text-align: left; /* Align overview to the left */
+    width: 100%; /* Ensure text fills the container */
+}
+
+.movie-number {
+    margin-top: auto; /* Align at the bottom */
+    font-size: 1rem; /* Larger font size for bottom text */
+    text-align: left;
+    color: #ccc;
+}
+
+.rank {
+    font-size: 1.2rem; /* Larger font size for rank number */
+    color: red; /* Red color for rank number */
+}

@@ -48,7 +48,6 @@ export const login = async (email, password) => {
     const response = await fetch(`${BACKEND_URL}/login`, requestOptions);
 
     const data = await response.json();
-
     if (response.status === 201) {
         return data;
     }else if(response.message === "User not found") {

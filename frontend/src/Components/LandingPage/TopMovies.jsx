@@ -22,7 +22,9 @@ const TopMovies = () => {
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="movie-info">
                         <h3>{movie.title}</h3>
-                        <p>{movie.overview}</p>
+                        <p >{movie.overview}</p>
+                        <br></br>
+                        <p className='vote-average'>{movie.vote_average}</p>
                         <div className="movie-number">Movie Heroes users ranked {movie.title} the number <span className="rank">{index + 1}</span> film of all time.</div>
                     </div>
                 </a>

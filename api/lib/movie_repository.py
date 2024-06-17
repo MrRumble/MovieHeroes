@@ -26,6 +26,7 @@ class MovieRepository:
         movies_as_dicts = list(sorted_db_vote_average)
         for movie in movies_as_dicts:
             movie['_id'] = str(movie['_id'])
+            movie['vote_average'] = round(movie['vote_average'], 2)
         return movies_as_dicts
 
     def find_all(self):

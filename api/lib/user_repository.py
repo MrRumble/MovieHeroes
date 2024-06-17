@@ -12,7 +12,7 @@ class UserRepository():
 
     #Create a new user
     #user: an instance of User class object
-    def create(self, user, table_name = 'users'):        
+    def create(self, user, table_name = 'users'):
         salt = bcrypt.gensalt()
         hashed_password = bcrypt.hashpw(user.password.encode("utf-8"), salt)
 
@@ -24,12 +24,12 @@ class UserRepository():
             'email': user.email,
             'password': hashed_password.decode("utf-8") ,
             'userId': next_user_id
-        }  
+        }
         result = self.db[table_name].insert_one(user_data)
         user.id = result.inserted_id
-        user.password = hashed_password.decode("utf-8") 
+        user.password = hashed_password.decode("utf-8")
         return user
-    
+
     #Checks if the user already exists in our db
     def email_exists(self, email, table_name = 'users'):
         user = self.db[table_name].find_one({'email': email})
@@ -37,11 +37,11 @@ class UserRepository():
             self.user_details_errors['email'] = "Email address already exists. Try another one!"
             return True
         return False
-    
+
 #Check if the password already exists in our DB
     def user_exists(self,email, password):
         user = self.db.users.find_one({'email': email})
-        
+
         if not user:
             print("Auth Error: User not found")
             return jsonify({"message": "User not found"}), 401
@@ -49,7 +49,7 @@ class UserRepository():
             print("Auth Error: Passwords do not match")
             return jsonify({"message": "Password incorrect"}), 401
         else :
-            user_id_str = str(user['_id']) 
+            user_id_str = str(user['_id'])
             token = generate_token(user_id_str)
             return jsonify({"token": token, "message": "OK", "userId": str(user['_id']),"full_name": user['full_name'], "email": user['email']}), 201
             # James: Added in full_name and email to JSON to be able to use for "Myprofile" page
@@ -59,12 +59,12 @@ class UserRepository():
         if highest_user:
             return highest_user['userId']
         return None
-    
+
     def find_user_by_id(self,id, users = "users"):
         users = self.db[users]
         found_user = users.find_one({"_id":ObjectId(id)})
         return found_user
-    
+
     def update_avatar_by_id(self,id,avatar, users = "users"):
         users = self.db[users]
         result = users.update_one(
@@ -73,3 +73,7 @@ class UserRepository():
         )
         # found_user = users.find_one({"_id":id})
         return result
+
+    def get_user_id_from_object_id(self, objectId):
+        user = self.db.users.find_one({"_id": int(objectId)})
+        return user['userId']

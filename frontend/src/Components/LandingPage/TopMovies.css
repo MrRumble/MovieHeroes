@@ -33,12 +33,13 @@
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Align items at the top and bottom */
-    align-items: flex-start;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
     border-radius: 8px;
     opacity: 0;
     transition: opacity 0.3s ease;
     box-sizing: border-box; /* Ensure padding is included in width and height */
+    text-align: center; /* Center text inside .movie-info */
 }
 
 .movie-tile:hover .movie-info {
@@ -48,16 +49,22 @@
 .movie-info h3 {
     margin: 0;
     font-size: 1.2rem;
-    text-align: left; /* Align title to the left */
+    text-align: left; /* Center title */
     width: 100%; /* Ensure text fills the container */
     overflow-wrap: break-word; /* Allow long titles to wrap */
+}
+
+.vote-average {
+    color: gold;       /* Gold color for vote average text */
+    font-size: 8rem !important; /* Make the text bigger */
+    text-align: center !important;
 }
 
 .movie-info p {
     margin: 10px 0 0;
     font-size: 0.9rem;
     line-height: 1.3;
-    text-align: left; /* Align overview to the left */
+    text-align: left; /* Center overview */
     width: 100%; /* Ensure text fills the container */
 }
 

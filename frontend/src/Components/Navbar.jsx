@@ -91,7 +91,7 @@ const Navbar = () => {
             </>
           )}
           {userName && (
-            <button className="nav-link" onClick={handleLogout}>
+            <button className={`nav-link ${currentPage === "/logout" ? 'active' : ''}`} onClick={handleLogout}>
               Logout
             </button>
           )}
@@ -104,8 +104,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-

@@ -5,11 +5,11 @@
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
     padding: 20px;
+    padding-top: 200px;
     transition: background-image 0.5s ease-in-out; /* Add transition for smooth change */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    /* align-items: center; Center horizontally */
+    justify-content: center; 
 }
 
 .carousel-container {

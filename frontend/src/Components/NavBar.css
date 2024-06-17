@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 40px !important;
     background-color: black; 
     border: 2px solid #edafed;
     color: #edafed;
@@ -14,14 +14,14 @@
     width:100%;
   }
   
-  .navbar-logo {
-    width: 50px;
-    margin-right: 10px;
-  }
-  
   .navbar-title {
     display: flex;
     align-items: center;
+  }
+
+  .navbar-title:hover {
+    text-decoration: underline;
+    cursor: pointer; /* Optional: change cursor to pointer on hover */
   }
   
   .nav-links {
@@ -33,22 +33,12 @@
   
   .nav-link {
     color: #fff;
-}
-.navbar-logo{
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-    /* font-size: 16px;
-    cursor: pointer;
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
-  } */
+}
   
   .nav-link:hover {
-    color: #b19cd9; /* Hover color */
-    transform: scale(1.1); /* Scale effect on hover */
+    color: #b19cd9; 
+    transform: scale(1.1); 
   }
   
   .nav-link:hover::after {
@@ -62,15 +52,20 @@
     animation: glow 1s infinite alternate; /* Animation for glowing effect */
   }
 
-  .navbar-container {
+  /* .navbar-container {
     margin: auto;
     padding: 1em;
-}
+} */
 
 .navbar-logo{
   height: 80px;
   width: 80px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.nav-link.active {
+  text-decoration: underline; 
+  font-weight: bold;/* Underline active link */
 }
   

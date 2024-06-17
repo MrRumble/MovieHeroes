@@ -18,14 +18,14 @@ const TopMovies = () => {
     return (
         <div className="movies-container">
             {topMovies.map((movie, index) => (
-                <div key={index} className={`movie-tile ${index + 1}`}>
+                <a key={index} href={`/movie_page/${movie._id}`} className={`movie-tile ${index + 1}`}>
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="movie-info">
                         <h3>{movie.title}</h3>
                         <p>{movie.overview}</p>
                         <div className="movie-number">Movie Heroes users ranked {movie.title} the number <span className="rank">{index + 1}</span> film of all time.</div>
                     </div>
-                </div>
+                </a>
             ))}
         </div>
     );

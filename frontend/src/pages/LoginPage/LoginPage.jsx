@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../services/authentication";
 import { Link } from 'react-router-dom';
 import Navbar from "../../Components/Navbar";
-
+import "./LoginPage.css"
 export const LoginPage = () => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -46,6 +46,7 @@ return (
     <>
     <Navbar />
     <div>
+        {/* <Navbar/> */}
         <div className="login-tile">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>

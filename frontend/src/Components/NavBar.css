@@ -3,14 +3,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #000000;
+    background-color: black; 
+    border: 2px solid #edafed;
     color: #edafed;
     box-shadow: 0 4px 6px rgba(123, 78, 78, 0.1);
-    position: sticky;
     top: 0;
     z-index: 1000;
-    margin-top: 30px;
-    border-radius: 25px;
+    border-radius: 25px;  
+    position: fixed !important;
+    width:100%;
   }
   
   .navbar-logo {
@@ -60,10 +61,16 @@
     background-color: #b19cd9; /* Purple color */
     animation: glow 1s infinite alternate; /* Animation for glowing effect */
   }
-  
-  .logged-in-as {
-    font-size: 14px;
-    color: #fff;
-    margin-top: 10px; /* Adjust margin as needed */
-  }
+
+  .navbar-container {
+    margin: auto;
+    padding: 1em;
+}
+
+.navbar-logo{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
   

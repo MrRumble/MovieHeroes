@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar";
 import "./MyProfile.css"; 
+import {updateAvatar} from "../../services/user"
 
 const MyProfilePage = () => {
 
@@ -31,6 +32,10 @@ const MyProfilePage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("form submitted", selectedAvatar)
+    const token = localStorage.getItem('token');
+    const avatarSelected = await updateAvatar(token, selectedAvatar)
+    console.log(avatarSelected);
+    return avatarSelected
 
     //try {
     // const avatarSelected = await updateAvatar(token, avatar);

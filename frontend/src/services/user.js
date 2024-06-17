@@ -22,11 +22,11 @@ export const updateAvatar = async (token=null, avatar) => {
 
     const data = await response.json()
 
-    console.log("this is the avatar response", data)
+    console.log("this is the avatar response", data.update_user.avatar)
     
     if (response.status !== 200) {
     throw new Error("Unable to add friend");
     } else {
-    return data; //we may need to update this to access a specific item
+    return data.update_user.avatar; //we may need to update this to access a specific item
     }
 };

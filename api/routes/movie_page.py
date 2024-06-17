@@ -38,3 +38,16 @@ def getMovie(id):
         found_movie["similar"].append(similar_movie)
 
     return jsonify(found_movie)
+
+@app.route("/movie_page/<id>", methods = ["POST"])
+def add_rating():
+    db=get_db()
+    rating_repo = RatingRepository(db)
+
+    userId = request.json['userId']
+    movieId = request.json["movieId"]
+    ratings = request.json['Ratings']
+
+    rating_repo.add_rating(userId, movieId, ratings)
+
+    return 'Thanks for the rating'

@@ -15,6 +15,8 @@ import pandas as pd
 
 
 
+# ratingRepo = RatingRepository(get_db())
+# ratingRepo.add_rating(612, 2, 4)
 
 load_dotenv()
 # Create a new Flask app
@@ -25,11 +27,10 @@ app.config['MONGO_URI'] = os.getenv('MONGODB_URL')
 CORS(app)
 
 
+
 from routes.signup import *
-from routes.login import *
 from routes.landing_page import *
 from routes.tmdb_trending_page import *
-
 from routes.movie_page import *
 
 # These lines start the server if you run this file directly

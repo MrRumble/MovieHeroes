@@ -7,10 +7,10 @@ from flask import Flask, request, jsonify, redirect
 from lib.rating import Rating
 from lib.rating_repository import RatingRepository
 from utils.create_matrix import create_matrix
-from utils.movie_recommendations import find_similar_movies 
+from utils.movie_recommendations import find_similar_movies
 from lib.user_repository import *
 import pandas as pd
-import time 
+import time
 
 
 
@@ -35,7 +35,7 @@ def getMovie(id):
     found_movie["similar"] = []
 
     for id in similar_ids:
-        similar_movie = movies_repo.find_movie_by_id(id, "Movie_Heros").__dict__ 
+        similar_movie = movies_repo.find_movie_by_id(id, "Movie_Heros").__dict__
         found_movie["similar"].append(similar_movie)
 
     return jsonify(found_movie)
@@ -48,8 +48,9 @@ def rate_movie(movie_id):
     user_id = data.get('userId')
     rating = data.get('rating')
     user = UserRepository(db)
-    user_id = user.get_user_id_from_object_id(int(user_id))
-    print('jeifhegfheiofghaeoifhioeafhioeafhiaeufhaeiufhaeiuf')
+    user_id = user.get_user_id_from_object_id(user_id)
+    rating_repo = RatingRepository(db)
+    rating_repo.add_rating(user_id, movie_id, rating)
     print(f"User {user_id} rated movie {movie_id} with {rating} stars")
     return jsonify({'message': 'Rating submitted successfully'})
 

@@ -7,7 +7,7 @@ from bson import ObjectId
 
 class UserRepository():
     def __init__(self, connection):
-        self.db = connection.get_db()
+        self.db = connection
         self.user_details_errors = {'password': "", 'email': "" , "login" : ""}
 
     #Create a new user
@@ -75,5 +75,6 @@ class UserRepository():
         return result
 
     def get_user_id_from_object_id(self, objectId):
-        user = self.db.users.find_one({"_id": int(objectId)})
+        users = self.db["users"]
+        user = self.db.users.find_one({"_id": ObjectId(objectId)})
         return user['userId']

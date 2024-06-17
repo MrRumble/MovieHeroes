@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import handleErrors from "../HandleErrors";
 import { signup } from "../../services/authentication";
-import NavBarLogin from "../../Components/NavBarLogin/NavBarLogin"
 import { Link } from 'react-router-dom';
 import "./SignupPage.css";
+import Navbar from "../../Components/Navbar";
 
 const SignupPage = () => {
 const [fullName, setFullName] = useState("");
@@ -55,6 +55,8 @@ const navigate = useNavigate();
     }
 
     return (
+        <>
+        <Navbar />
         <div className="signup-container">
             <div className="signup-content">
                 <h2>Sign Up for Your Free Account!</h2>
@@ -114,6 +116,7 @@ const navigate = useNavigate();
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

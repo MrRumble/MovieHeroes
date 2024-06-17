@@ -6,7 +6,6 @@ import { signup } from "../../services/authentication";
 import { Link } from 'react-router-dom';
 import "./SignupPage.css";
 import Navbar from "../../Components/Navbar";
-import Navbar from "../../Components/Navbar";
 
 const SignupPage = () => {
 const [fullName, setFullName] = useState("");

@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-const LoggedInAs = () => {
+import "./LoggedInAs.css";  // Import the CSS file
+
+const LoggedInAs = ({ userName }) => {  // Remove setUserName from props
   const location = useLocation();
-  const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    // Retrieve userName from localStorage
-    const storedUserName = localStorage.getItem("full_name");
-    if (storedUserName) {
-      setUserName(storedUserName);
-    }
+    // No need to set userName state here; it's already passed as prop
   }, [location.pathname]);
 
   return (
     <div>
       {userName && (
-        <div className="logged-in-as">
-          Logged in as: {userName}
+        <div className="logged-in-as-container">
+          <p className="logged-in-as">Logged in as: {userName}</p>
         </div>
       )}
     </div>

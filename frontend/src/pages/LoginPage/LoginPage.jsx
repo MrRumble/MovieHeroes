@@ -31,7 +31,7 @@ const handleSubmit = async (event) => {
             localStorage.setItem("token", loginResponse.token);
             localStorage.setItem("userId", loginResponse.userId);
             setErrorMessage("")
-            navigate("/");//user homePage
+            navigate("/myprofile");//user homePage
         }
     } catch (err) {
         console.error(err);
@@ -41,6 +41,7 @@ const handleSubmit = async (event) => {
 
 return (
     <>
+    <Navbar />
     <div>
         <div className="login-tile">
         <h2>Login</h2>

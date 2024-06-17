@@ -1,8 +1,10 @@
 from app import app
 from lib.token import *
 from flask import request, jsonify
+from lib.tokenChecker import token_checker
 
 @app.route("/myprofile", methods=["GET"])
+@token_checker
 def get_user(): 
     user_id = request.args.get('userId')
     try:

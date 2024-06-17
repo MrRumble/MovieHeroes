@@ -12,10 +12,6 @@ from utils.create_matrix import create_matrix
 from utils.movie_recommendations import find_similar_movies 
 import pandas as pd
 
-
-
-
-
 load_dotenv()
 # Create a new Flask app
 app = Flask(__name__)

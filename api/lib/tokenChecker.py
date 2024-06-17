@@ -7,11 +7,13 @@ def token_checker(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         auth_header = request.headers.get('Authorization')
-        
+
         if auth_header:
             try:
+                print(auth_header.split())
                 token = auth_header.split()[1]  # Remove the "Bearer" part
                 payload = decode_token(token)
+
                 if payload is None:
                     raise jwt.InvalidTokenError
                 g.user_id = payload['user_id']  # Store user_id in Flask's global object

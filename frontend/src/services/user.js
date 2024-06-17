@@ -18,10 +18,15 @@ export const updateAvatar = async (token=null, avatar) => {
     };
 
     let response = await fetch(`${BACKEND_URL}/userProfile`, requestOptions);
-    console.log("this is the avatar response", response)
+    
+
+    const data = await response.json()
+
+    console.log("this is the avatar response", data)
+    
     if (response.status !== 200) {
     throw new Error("Unable to add friend");
     } else {
-    return response; //we may need to update this to access a specific item
+    return data; //we may need to update this to access a specific item
     }
 };

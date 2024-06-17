@@ -26,13 +26,16 @@ const MyProfilePage = () => {
     // can implement logic to save selected avatar in state or localStorage <- Decide (nice to have)
     console.log("this is the avatar selected", avatar);
   };
+
   // function to submit avatar selection
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("form submitted", avatar)
+    console.log("form submitted", selectedAvatar)
 
-    try {
-        const avatarSelected = await updateAvatar(token, avatar);
+    //try {
+    // const avatarSelected = await updateAvatar(token, avatar);
+
+  }
 //         if(typeof(loginResponse) === "string"){
 //             setErrorMessage(loginResponse)
 //         }else{

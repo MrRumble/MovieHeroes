@@ -12,3 +12,16 @@ def get_user():
         return jsonify({"post": "Token Checker almost works", "token": token}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
+# Example user model as a dictionary
+user = {
+    'name': 'Alice',
+    'email': 'alice@example.com',
+    'favorites': ['Python', 'Flask']
+}
+
+# Adding a new favorite item (equivalent to push in JavaScript for arrays)
+user['favorites'].append('Django')
+
+print(user)

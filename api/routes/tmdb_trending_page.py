@@ -33,5 +33,5 @@ def get_tmdb_trending():
             all_movies.append(movie_info)
     else:
         print(f"Failed to fetch data. Status code: {response.status_code}")
-        print(all_movies)
+        # print(all_movies)
     return jsonify(all_movies)

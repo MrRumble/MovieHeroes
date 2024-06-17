@@ -3,6 +3,7 @@ import bcrypt
 from lib.database_connection import get_db
 from flask import jsonify
 from lib.token import *
+from bson import ObjectId
 
 class UserRepository():
     def __init__(self, connection):
@@ -53,9 +54,22 @@ class UserRepository():
             return jsonify({"token": token, "message": "OK", "userId": str(user['_id']),"full_name": user['full_name'], "email": user['email']}), 201
             # James: Added in full_name and email to JSON to be able to use for "Myprofile" page
 
-
     def get_highest_user_id(self):
         highest_user = self.db.users.find_one(sort=[("userId", -1)])
         if highest_user:
             return highest_user['userId']
         return None
+    
+    def find_user_by_id(self,id, users = "users"):
+        users = self.db[users]
+        found_user = users.find_one({"_id":ObjectId(id)})
+        return found_user
+    
+    def update_avatar_by_id(self,id,avatar, users = "users"):
+        users = self.db[users]
+        result = users.update_one(
+            {'_id': ObjectId(id)},
+            {'$set': {'avatar': avatar}}
+        )
+        # found_user = users.find_one({"_id":id})
+        return result

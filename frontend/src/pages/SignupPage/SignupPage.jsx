@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import handleErrors from "../HandleErrors";
 import { signup } from "../../services/authentication";
-import NavBarLogin from "../../Components/NavBarLogin/NavBarLogin"
+// import NavBarLogin from "../../Components/NavBarLogin/NavBarLogin"
 import { Link } from 'react-router-dom';
 import "./SignupPage.css";
+import Navbar from "../../Components/Navbar";
 
 const SignupPage = () => {
 const [fullName, setFullName] = useState("");

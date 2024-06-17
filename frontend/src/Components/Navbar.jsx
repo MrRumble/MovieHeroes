@@ -25,6 +25,8 @@ const Navbar = () => {
     navigate(path);
   };
 
+
+
   const handleLogout = () => {
     // Clear localStorage
     localStorage.clear();
@@ -32,10 +34,17 @@ const Navbar = () => {
     setUserName("");
   };
 
+
   return (
     <nav>
       <div className="navbar">
+        <span
+            className={`nav-logo ${currentPage === "/" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/")}
+        >
         <h1 className="navbar-title">
+
+
           <img
             src={MovieHero}
             className="navbar-logo"
@@ -43,13 +52,10 @@ const Navbar = () => {
           />
           MovieHeroes
         </h1>
+        
+        </span>
         <div className="nav-links">
-          <span
-            className={`nav-link ${currentPage === "/" ? 'active' : ''}`}
-            onClick={() => handleNavigation("/")}
-          >
-            Home
-          </span>
+    
           <span
             className={`nav-link ${currentPage === "/about" ? 'active' : ''}`}
             onClick={() => handleNavigation("/about")}
@@ -68,38 +74,48 @@ const Navbar = () => {
               if (userName) {
                 handleNavigation("/myprofile");
               } else {
-                handleNavigation("/signup");
+                handleNavigation("/login");
               }
             }}
           >
             My Profile
           </span>
-          <span
-            className={`nav-link ${currentPage === "/login" ? 'active' : ''}`}
-            onClick={() => handleNavigation("/login")}
-          >
-            Login
-          </span>
-          <span
-            className={`nav-link ${currentPage === "/signup" ? 'active' : ''}`}
-            onClick={() => handleNavigation("/signup")}
-          >
-            Signup
-          </span>
+          {!userName && (
+            <>
+              <span
+                className={`nav-link ${currentPage === "/login" ? 'active' : ''}`}
+                onClick={() => handleNavigation("/login")}
+              >
+                Login
+              </span>
+              <span
+                className={`nav-link ${currentPage === "/signup" ? 'active' : ''}`}
+                onClick={() => handleNavigation("/signup")}
+              >
+                Signup
+              </span>
+            </>
+          )}
           {userName && (
             <button className="nav-link" onClick={handleLogout}>
               Logout
             </button>
           )}
         </div>
-        {userName && (
-          <div className="logged-in-as">
-            Logged in as: {userName}
-          </div>
-        )}
       </div>
     </nav>
   );
 };
-
 export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+

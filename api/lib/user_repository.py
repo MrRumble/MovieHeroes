@@ -50,7 +50,8 @@ class UserRepository():
         else :
             user_id_str = str(user['_id']) 
             token = generate_token(user_id_str)
-            return jsonify({"token": token, "message": "OK", "userId": str(user['_id'])}), 201
+            return jsonify({"token": token, "message": "OK", "userId": str(user['_id']),"full_name": user['full_name'], "email": user['email']}), 201
+            # James: Added in full_name and email to JSON to be able to use for "Myprofile" page
 
 
     def get_highest_user_id(self):

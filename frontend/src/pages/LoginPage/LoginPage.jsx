@@ -30,6 +30,9 @@ const handleSubmit = async (event) => {
             console.log("redirecting...:");
             localStorage.setItem("token", loginResponse.token);
             localStorage.setItem("userId", loginResponse.userId);
+            // I added two fields to local storage below for access on 'Myprofile' page. James.
+            localStorage.setItem("email", loginResponse.email); 
+            localStorage.setItem("full_name", loginResponse.full_name);
             setErrorMessage("")
             navigate("/myprofile");//user homePage
         }

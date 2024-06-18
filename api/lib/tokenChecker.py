@@ -10,7 +10,6 @@ def token_checker(f):
 
         if auth_header:
             try:
-                print(auth_header.split())
                 token = auth_header.split()[1]  # Remove the "Bearer" part
                 payload = decode_token(token)
 

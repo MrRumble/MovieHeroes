@@ -5,17 +5,21 @@ from lib.database_connection import get_db
 import time
 
 def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_mapper, k=10):
+    print('1')
     db = get_db()
+    print('2')
     links = db['links']
+    print('3')
     rating_repo = RatingRepository(db)
-    all_ratings = rating_repo.all_ratings()
-
+    print('4')
+    all_ratings = rating_repo.all_ratings() #slow here
+    print('5')
     ratings_df = all_ratings[all_ratings['userId'] == user_id]
-
+    print('6')
     top_rated_df = ratings_df[ratings_df['rating'] == 5]
-
-    most_recent_top_5 = top_rated_df.head(5)
-
+    print('7')
+    most_recent_top_5 = top_rated_df.head(1)
+    print('8')
     most_recent_top_5_list = most_recent_top_5['movieId'].tolist()
     print(most_recent_top_5_list, "MOST RECENT ")
 
@@ -35,6 +39,7 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
         movies_list.append(similar_ids)
     
     flattened_list = [item for sublist in movies_list for item in sublist]
+    print(flattened_list)
     return flattened_list
 
 # TODO Refactor to include cases where no 5 star ratings

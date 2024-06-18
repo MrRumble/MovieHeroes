@@ -1,5 +1,5 @@
 from lib.movie import Movie
-from pymongo import DESCENDING
+from pymongo import DESCENDING, mongo_client
 from flask import jsonify
 from lib.database_connection import get_db
 
@@ -40,4 +40,4 @@ class MovieRepository:
             movie = Movie(row["id"], row["title"], overview, poster_path, backdrop_path, row["vote_average"], row["release_date"])
             movies.append(movie)
         return movies
-    
+

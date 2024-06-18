@@ -14,3 +14,4 @@ class RatingRepository:
             ratings.append(rating)
         df = pd.DataFrame.from_records([rating.__dict__ for rating in ratings])
         return df
+    

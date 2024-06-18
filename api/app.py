@@ -25,7 +25,7 @@ from routes.signup import *
 from routes.login import *
 from routes.landing_page import *
 from routes.tmdb_trending_page import *
-
+from routes.recommended_movie_route import *
 from routes.movie_page import *
 
 # These lines start the server if you run this file directly

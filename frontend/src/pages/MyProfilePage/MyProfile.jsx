@@ -16,10 +16,13 @@ const MyProfilePage = () => {
 
 // CAN EASILY AMMEND THESES URL LINKS TO DATABASE (COULD BE A NICE TO HAVE FOR NOW?)
   const avatarOptions = [
-    "https://emoji.beeimg.com/👽/150/apple",
-    "https://emoji.beeimg.com/😎/150/apple", 
-    "https://emoji.beeimg.com/ 😱/150/apple",
-    "https://emoji.beeimg.com/ 🦁/150/apple"
+    "src/assets/alpha.png",
+    "src/assets/batman.png",
+    "src/assets/boy.png",
+    "src/assets/hulk.png",
+    "src/assets/ironman.png",
+    "src/assets/maskgirl.png",
+    "src/assets/robocop.png",
   ]
 
   // function to submit avatar selection
@@ -52,7 +55,7 @@ const MyProfilePage = () => {
       <h1 className="profile-heading">MY PROFILE</h1>
       <div className="profile-details">
         <p>
-          <img src={userAvatar} alt='avatar'/>
+          {userAvatar? <img src={userAvatar} alt='avatar'/> : ""}
         </p>
         <p>
           <strong>User Name:</strong> {fullName || "Not available"}

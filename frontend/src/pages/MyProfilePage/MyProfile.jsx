@@ -56,7 +56,7 @@ const MyProfilePage = () => {
       <h1 className="profile-heading">MY PROFILE</h1>
       <div className="profile-details">
         <p>
-          {userAvatar? <img src={userAvatar} alt='avatar'/> : ""}
+          {userAvatar? <img src={userAvatar} className="user-avatar"alt='avatar'/> : ""}
         </p>
         <button onClick={()=>setIsVisible(!isVisible)}>
           {isVisible? "Cancel" : "Choose your Hero"}

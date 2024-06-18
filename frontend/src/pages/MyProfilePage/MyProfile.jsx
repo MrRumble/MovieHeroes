@@ -17,13 +17,14 @@ const MyProfilePage = () => {
 
 // CAN EASILY AMMEND THESES URL LINKS TO DATABASE (COULD BE A NICE TO HAVE FOR NOW?)
   const avatarOptions = [
-    "src/assets/alpha.png",
+    "src/assets/captainAmerica.png",
     "src/assets/batman.png",
-    "src/assets/boy.png",
+    "src/assets/superman.png",
     "src/assets/hulk.png",
     "src/assets/ironman.png",
-    "src/assets/maskgirl.png",
     "src/assets/robocop.png",
+    "src/assets/flask.png",
+    "src/assets/spiderman.png",
   ]
 
   // function to submit avatar selection

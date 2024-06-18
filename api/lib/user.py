@@ -1,12 +1,12 @@
 class User:
-    def __init__(self, full_name, email, password, _id=None, userId =None, userRating = [], userAvatar = ""):
+    def __init__(self, full_name, email, password, _id=None, userId =None, userRating = [], avatar = ""):
         self.id = _id
         self.full_name = full_name
         self.email = email
         self.password = password
         self.userId = userId
         self.userRating = userRating
-        self.userAvatar = userAvatar
+        self.avatar = avatar
 
 
     

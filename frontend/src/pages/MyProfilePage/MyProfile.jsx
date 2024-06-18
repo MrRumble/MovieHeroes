@@ -6,6 +6,7 @@ import {updateAvatar, getAvatarByUserById} from "../../services/user"
 const MyProfilePage = () => {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [userAvatar, setUserAvatar] = useState("")
+  const [isVisible, setIsVisible] = useState(false)
 
   const fullName = localStorage.getItem("full_name");
   const email = localStorage.getItem("email");
@@ -31,6 +32,7 @@ const MyProfilePage = () => {
     try {
         const avatarSelected = await updateAvatar(token, selectedAvatar);
         setUserAvatar(avatarSelected);
+        setIsVisible(!isVisible)
     } catch (error) {
         console.error("Failed to update avatar:", error);
     }
@@ -48,7 +50,6 @@ const MyProfilePage = () => {
     }
   }, [token]);
 
-
   return (
     <div className="my-profile-page">
       <Navbar userName={fullName} /> 
@@ -57,6 +58,34 @@ const MyProfilePage = () => {
         <p>
           {userAvatar? <img src={userAvatar} alt='avatar'/> : ""}
         </p>
+        <button onClick={()=>setIsVisible(!isVisible)}>
+          {isVisible? "Cancel" : "Choose your Hero"}
+        </button>
+
+        {isVisible && (
+          <div className="avatar-selection">
+          <h3>Choose Your Avatar:</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="avatar-options">
+              {avatarOptions.map((avatar, index) => (
+                <img
+                  key={index}
+                  src={avatar}
+                  alt={`Avatar ${index}`}
+                  className={`avatar ${avatar === selectedAvatar ? 'selected' : ''}`}
+                  value={avatar}
+                  onClick={() => setSelectedAvatar(avatar)}
+                />
+              ))}
+            </div>
+            <br/>
+            <div>
+              <input role="submit-button" id="submit" type="submit" value="Save Avatar" />
+            </div>
+          </form>
+        </div>
+        )}
+
         <p>
           <strong>User Name:</strong> {fullName || "Not available"}
         </p>
@@ -67,28 +96,6 @@ const MyProfilePage = () => {
           <strong>My Favourite Films:</strong>
         </p>
         Top ranked films...?
-      </div>
-      {/* Avatar selection area */}
-      <div className="avatar-selection">
-        <h2>Choose Your Avatar:</h2>
-        <form onSubmit={handleSubmit}>
-        <div className="avatar-options">
-          {avatarOptions.map((avatar, index) => (
-            <img
-              key={index}
-              src={avatar}
-              alt={`Avatar ${index}`}
-              className={`avatar ${avatar === selectedAvatar ? 'selected' : ''}`}
-              value={avatar}
-              onClick={() => setSelectedAvatar(avatar)}
-            />
-          ))}
-        </div>
-        <br/>
-        <div>
-        <input role="submit-button" id="submit" type="submit" value="Save Avatar" />
-        </div>
-        </form>
       </div>
     </div>
   );

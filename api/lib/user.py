@@ -6,7 +6,7 @@ class User:
         self.password = password
         self.userId = userId
         self.userRating = userRating
-        self.avatar = avatar
+        self.userAvatar = avatar
 
 
     

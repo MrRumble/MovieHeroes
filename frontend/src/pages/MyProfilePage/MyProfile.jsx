@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../../Components/Navbar";
 import "./MyProfile.css"; 
-import {updateAvatar} from "../../services/user"
+import {updateAvatar, getAvatarByUserById} from "../../services/user"
 
 const MyProfilePage = () => {
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [userAvatar, setUserAvatar] = useState("")
 
   const fullName = localStorage.getItem("full_name");
   const email = localStorage.getItem("email");
-  const userId = localStorage.getItem("userId");
+  const token = localStorage.getItem('token');
 
   // State to track selected avatar (just for demonstration)
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  
 
 // CAN EASILY AMMEND THESES URL LINKS TO DATABASE (COULD BE A NICE TO HAVE FOR NOW?)
   const avatarOptions = [
@@ -18,52 +20,40 @@ const MyProfilePage = () => {
     "https://emoji.beeimg.com/😎/150/apple", 
     "https://emoji.beeimg.com/ 😱/150/apple",
     "https://emoji.beeimg.com/ 🦁/150/apple"
-
-  ];
-
-  // Function to handle avatar selection
-  const handleAvatarChange = (avatar) => {
-    setSelectedAvatar(avatar);
-    // can implement logic to save selected avatar in state or localStorage <- Decide (nice to have)
-    console.log("this is the avatar selected", avatar);
-  };
+  ]
 
   // function to submit avatar selection
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("form submitted", selectedAvatar)
-    const token = localStorage.getItem('token');
-    const avatarSelected = await updateAvatar(token, selectedAvatar)
-    console.log(avatarSelected);
-    return avatarSelected
+    try {
+        const avatarSelected = await updateAvatar(token, selectedAvatar);
+        setUserAvatar(avatarSelected);
+    } catch (error) {
+        console.error("Failed to update avatar:", error);
+    }
+};
 
-    //try {
-    // const avatarSelected = await updateAvatar(token, avatar);
+  useEffect(() => {
+    if (token) {
+        getAvatarByUserById(token)
+            .then(avatar => {
+                setUserAvatar(avatar);
+            })
+            .catch(err => {
+                console.error("Failed to fetch avatar:", err);
+            });
+    }
+  }, [token]);
 
-  }
-//         if(typeof(loginResponse) === "string"){
-//             setErrorMessage(loginResponse)
-//         }else{
-//             console.log("redirecting...:");
-//             localStorage.setItem("token", loginResponse.token);
-//             localStorage.setItem("userId", loginResponse.userId);
-//             // I added two fields to local storage below for access on 'Myprofile' page. James.
-//             localStorage.setItem("email", loginResponse.email); 
-//             localStorage.setItem("full_name", loginResponse.full_name);
-//             setErrorMessage("")
-//             navigate("/myprofile");//user homePage
-//         }
-//     } catch (err) {
-//         console.error(err);
-//         navigate("/login");
-//     }
-// }
 
   return (
     <div className="my-profile-page">
       <Navbar userName={fullName} /> 
       <h1 className="profile-heading">MY PROFILE</h1>
       <div className="profile-details">
+        <p>
+          <img src={userAvatar} alt='avatar'/>
+        </p>
         <p>
           <strong>User Name:</strong> {fullName || "Not available"}
         </p>
@@ -87,7 +77,7 @@ const MyProfilePage = () => {
               alt={`Avatar ${index}`}
               className={`avatar ${avatar === selectedAvatar ? 'selected' : ''}`}
               value={avatar}
-              onClick={() => handleAvatarChange(avatar)}
+              onClick={() => setSelectedAvatar(avatar)}
             />
           ))}
         </div>

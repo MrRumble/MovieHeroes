@@ -71,5 +71,5 @@ class UserRepository():
             {'_id': ObjectId(id)},
             {'$set': {'avatar': avatar}}
         )
-        # found_user = users.find_one({"_id":id})
         return result
+    

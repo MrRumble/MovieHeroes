@@ -1,4 +1,4 @@
-from lib.user import User
+from frontend.src.assets.user import User
 import bcrypt
 from lib.database_connection import get_db
 from flask import jsonify

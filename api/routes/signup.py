@@ -1,7 +1,7 @@
 from app import app
 from flask import request, jsonify
 from lib.user_repository import *
-from lib.user import User
+from frontend.src.assets.user import User
 import lib.database_connection as database_connection
 
 @app.route("/signup", methods=["POST"])

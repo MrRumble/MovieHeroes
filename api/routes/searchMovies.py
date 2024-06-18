@@ -20,13 +20,15 @@ from lib.database_connection import get_db
 #         return jsonify({"error": "An error occurred while fetching movies"}), 500
     
 
-@app.route("/searchMovies", methods=["GET"])
+@app.route("/searchMovies", methods=["POST"])
 def search_for_movies():
     try:
+        data = request.get_json()
+        value = data.get('value',"")
         db = get_db()
         movie_repo = MovieRepository(db)
         # Fetch all movie documents
-        movies = movie_repo.find_all_movies()
+        movies = movie_repo.find_all_movies(value)
         print(movies)
 
         all_movies=[]

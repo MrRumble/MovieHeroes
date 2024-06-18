@@ -25,6 +25,7 @@ from routes.signup import *
 from routes.login import *
 from routes.landing_page import *
 from routes.tmdb_trending_page import *
+from routes.searchMovies import *
 
 from routes.movie_page import *
 

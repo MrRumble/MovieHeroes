@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import MovieHero from "../assets/MovieHero.png";
 import LoggedInAs from "./LoggedInAs/LoggedInAs"; // Import LoggedInAs component
+import SearchBar from "./SearchBar/SearchBar";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -90,6 +91,14 @@ const Navbar = () => {
               </span>
             </>
           )}
+            <div className = "navbar-left">
+                <div>
+                    <SearchBar/>
+                    {/* setResults={setResults} */}
+                    {/* {results && results.length > 0 && <SearchResultsList results={results} token={token}/>} */}
+                </div>
+            </div>
+          
           {userName && (
             <button className={`nav-link ${currentPage === "/logout" ? 'active' : ''}`} onClick={handleLogout}>
               Logout
@@ -104,3 +113,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

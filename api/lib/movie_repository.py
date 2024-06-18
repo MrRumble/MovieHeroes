@@ -41,3 +41,9 @@ class MovieRepository:
             movies.append(movie)
         return movies
     
+    # def find_all_movies(self):
+    #     movies = list(self.db["Movie_Heros"].find())
+    #     return movies 
+
+    def find_all_movies(self, skip=0, limit=9000):
+        return list(self.db["Movie_Heros"].find().skip(skip).limit(limit))

@@ -1,4 +1,4 @@
-import './MovieSearchPage.css'; // Import your CSS file for styling
+import './MovieSearch.css'; // Import your CSS file for styling
 import Navbar from '../Navbar';
 import SearchBar from '../SearchBar/SearchBar';
 import { useState } from 'react';

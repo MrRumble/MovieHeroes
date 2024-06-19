@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../../Components/Navbar";
-import MovieSearchPage from '../../Components/MovieSearchPage/MovieSearchPage'
+import MovieSearch from '../../Components/MovieSearch/MovieSearch'
 import "./MoviesSearchResult.css"; 
 
 const MoviesSearchResult = () => {
     return (
         <div className="movie-search-page">
             <Navbar />
-            <MovieSearchPage />
+            <MovieSearch/>
         </div>
     );
 };

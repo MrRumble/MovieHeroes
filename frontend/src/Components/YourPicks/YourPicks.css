@@ -1,4 +1,4 @@
-.home {
+.your-picks-home {
     position: relative;
     background-size: cover;
     background-position: center;
@@ -41,4 +41,33 @@
     text-align: center;
     margin-top: 10px;
     color: white;
+}
+
+.center-movie-info {
+    position: absolute;
+    top: 20px; /* Adjust this value to your preference */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(84, 3, 90, 0.665);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Center align the text inside the box */
+}
+
+
+.movie-title {
+    font-size: 24px;
+    margin: 0;
+    color: white;
+}
+
+.movie-overview {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.movie-rating {
+    font-size: 16px;
+    margin: 0;
 }

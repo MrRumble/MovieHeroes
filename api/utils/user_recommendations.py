@@ -28,7 +28,7 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
 
     most_recent_top_5_list = most_recent_top_5['movieId'].tolist()
 
-    movies_list = []
+    movies_set = set()
     for movie in most_recent_top_5_list:
         found_movie = links.find_one({"movieId": movie})
         tmdb_found_movie_id = found_movie['tmdbId']
@@ -41,10 +41,9 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
         execution_time = end_time - start_time
         print(f"Time taken for find_similar_movies for movieId {movie}: {execution_time} seconds")
         
-        movies_list.append(similar_ids)
     
-    flattened_list = [item for sublist in movies_list for item in sublist]
-    return flattened_list
+        movies_set.update(similar_ids)
+    return list(movies_set)
 
 
 

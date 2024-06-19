@@ -1,18 +1,22 @@
 import { FaSearch } from "react-icons/fa";
 import {searchMovies} from '../../services/searchMovies'
 import "./SearchBar.css"
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({input, setInput, setFoundMovies}) => {
 
     const token = localStorage.getItem('token');
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             const searchedMovies = await searchMovies(token, input);
             setInput("");
-            // console.log("!!!!!!!!",searchedMovies)
             setFoundMovies(searchedMovies)
+            console.log("!!!!!!!!",searchedMovies)
+            localStorage.setItem("searchedMovies", JSON.stringify(searchedMovies)); // Store as JSON string
+            navigate("/movie_results")
         } catch (error) {
             console.error("Failed to update avatar:", error);
         }

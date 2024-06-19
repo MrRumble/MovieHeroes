@@ -33,6 +33,7 @@ export const LoginPage = () => {
                 localStorage.setItem("userId", loginResponse.userId);
                 localStorage.setItem("email", loginResponse.email);
                 localStorage.setItem("full_name", loginResponse.full_name);
+                localStorage.setItem("user_id", loginResponse.user_id);
                 setErrorMessage("");
                 navigate("/myprofile");
             }

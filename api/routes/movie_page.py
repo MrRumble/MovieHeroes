@@ -51,19 +51,16 @@ def rate_movie(movie_id):
     data = request.json
     user_id = data.get('userId')
     rating = data.get('rating')
+    ratings = db['ratings']
     user = UserRepository(db)
     user_id = user.get_user_id_from_object_id(user_id)
     rating_repo = RatingRepository(db)
-    try:
-        ratings = db['ratings']
-        old_rating = ratings.find_one({"$and":[{"userId": user_id}, {"movieId": movie_id}]})
-        print("line 61", old_rating)
-        print(old_rating['rating'])
+    if ratings.find_one({"$and":[{"userId": user_id}, {"movieId": movie_id}]}) is not None:
         filter = {"$and":[{"userId": user_id}, {"movieId": movie_id}]}
         new_rating = {"$set": {"rating": rating}}
         rating_repo.update_rating(filter, new_rating)
-    except:
+    else:
+        print("We are in except")
         rating_repo.add_rating(user_id, movie_id, rating)
-    print(f"User {user_id} rated movie {movie_id} with {rating} stars")
     return jsonify({'message': 'Rating submitted successfully'})
 

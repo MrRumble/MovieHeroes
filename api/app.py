@@ -29,6 +29,7 @@ from routes.tmdb_trending_page import *
 from routes.searchMovies import *
 
 from routes.movie_page import *
+from routes.initial_ratings import *
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

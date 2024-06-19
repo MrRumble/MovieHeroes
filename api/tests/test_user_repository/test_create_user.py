@@ -1,6 +1,6 @@
 from lib.user_repository import UserRepository
 import lib.database_connection as database_connection
-from lib.user import User
+from frontend.src.assets.user import User
 
 
 def test_create_new_user_is_added_to_db():

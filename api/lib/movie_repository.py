@@ -1,5 +1,5 @@
 from lib.movie import Movie
-from pymongo import DESCENDING
+from pymongo import DESCENDING, mongo_client
 from flask import jsonify
 from lib.database_connection import get_db
 
@@ -26,7 +26,7 @@ class MovieRepository:
         movies_as_dicts = list(sorted_db_vote_average)
         for movie in movies_as_dicts:
             movie['_id'] = str(movie['_id'])
-            movie['vote_average'] = round(movie['vote_average'], 2)
+            movie['vote_average'] = round(movie['vote_average']/2, 2)
         return movies_as_dicts
 
     def find_all(self):
@@ -40,4 +40,9 @@ class MovieRepository:
             movie = Movie(row["id"], row["title"], overview, poster_path, backdrop_path, row["vote_average"], row["release_date"])
             movies.append(movie)
         return movies
-    
+
+
+    def find_all_movies(self, value):
+        connection = self.db["Movie_Heros"]
+        movies = connection.find({"title": {"$regex": value, "$options": "i"}})
+        return list(movies)

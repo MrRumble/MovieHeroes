@@ -4,18 +4,25 @@
   
   .profile-details {
     background-color: #fb95e5;
+    height: 100vh;
     padding: 20px;
-    padding-top: 150px;
+    padding-top: 100px;
     border-radius: 8px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   }
   
   .profile-details p {
-    margin: 10px 0;
+    margin: px 0;
   }
   
   .profile-details strong {
     font-weight: bold;
+  }
+
+  .user-avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
   }
   
   .avatar-selection {

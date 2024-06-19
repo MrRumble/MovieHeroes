@@ -23,5 +23,3 @@ user = {
 
 # Adding a new favorite item (equivalent to push in JavaScript for arrays)
 user['favorites'].append('Django')
-
-print(user)

@@ -23,8 +23,9 @@ class UserRepository():
             'full_name': user.full_name,
             'email': user.email,
             'password': hashed_password.decode("utf-8") ,
-            'userId': next_user_id
-        }
+            'userId': next_user_id,
+            'avatar' : "src/assets/default_pic.png"
+        }  
         result = self.db[table_name].insert_one(user_data)
         user.id = result.inserted_id
         user.password = hashed_password.decode("utf-8")
@@ -71,7 +72,6 @@ class UserRepository():
             {'_id': ObjectId(id)},
             {'$set': {'avatar': avatar}}
         )
-        # found_user = users.find_one({"_id":id})
         return result
 
     def get_user_id_from_object_id(self, objectId):

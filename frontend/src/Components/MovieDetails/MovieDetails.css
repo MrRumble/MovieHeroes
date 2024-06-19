@@ -1,53 +1,74 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+    background-color: #000; /* Change background color to black */
     margin: 0;
     padding: 0;
+    color: #EDAFED; /* Change body text color */
 }
-
 #movieDetails {
     max-width: 900px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;
+    padding-top: 100px; /* Add extra padding to accommodate the background image */
+    padding-bottom: 100px; /* Add extra padding to accommodate the background image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    background-image: url('https://image.tmdb.org/t/p/w500${movie.poster_path}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
-
+#movieDetails::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Add a semi-transparent layer to improve readability */
+    border-radius: 8px;
+    z-index: 1;
+}
+#movieDetails > * {
+    position: relative;
+    z-index: 2;
+}
 .Image {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .Image img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
-
 h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
-    color: #111111;
+    color: #EDAFED; /* Change heading text color */
 }
-
 h3 {
     font-size: 1.5em;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #111111;
+    color: #EDAFED; /* Change subheading text color */
 }
-
+.overview {
+    border: 1px solid #EDAFED; /* Border color is #EDAFED */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 p {
     font-size: 1em;
     line-height: 1.6;
-    color: #000000;
+    color: #EDAFED; /* Change paragraph text color */
 }
-
 strong {
-    color: #000000;
+    color: #EDAFED; /* Change strong text color */
 }
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -55,35 +76,39 @@ ul {
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
-
 ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid #ccc;
+    border: 1px solid pink; /* Border color is pink */
     padding: 10px;
     border-radius: 8px;
+    transition: transform 0.3s ease;
 }
-
+ul li:hover {
+    transform: scale(1.05); /* Slightly enlarge the whole container on hover */
+}
 ul li img {
     width: 100px;
     height: 150px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for the image */
 }
-
+ul li:hover img {
+    transform: scale(2); /* Enlarge the image on hover */
+}
 ul li p {
     margin: 0;
     font-size: 1em;
+    color: #EDAFED; /* Change similar movie title color */
 }
-
 a {
-    color: #007bff;
+    color: #EDAFED; /* Change link text color */
     text-decoration: none;
 }
-
 a:hover {
     text-decoration: underline;
 }

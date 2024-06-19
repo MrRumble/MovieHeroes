@@ -42,7 +42,6 @@ const MovieDetails = () => {
                     </li>
                 ))}
             </ul>
-
         </div>
     );
 };

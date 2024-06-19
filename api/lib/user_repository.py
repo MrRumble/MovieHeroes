@@ -7,7 +7,7 @@ from bson import ObjectId
 
 class UserRepository():
     def __init__(self, connection):
-        self.db = connection
+        self.db = connection.get_db()
         self.user_details_errors = {'password': "", 'email': "" , "login" : ""}
 
     #Create a new user
@@ -52,7 +52,7 @@ class UserRepository():
         else :
             user_id_str = str(user['_id'])
             token = generate_token(user_id_str)
-            return jsonify({"token": token, "message": "OK", "userId": str(user['_id']),"full_name": user['full_name'], "email": user['email']}), 201
+            return jsonify({"token": token, "message": "OK", "userId": str(user['_id']),"full_name": user['full_name'], "email": user['email'], "user_id": user["userId"]}), 201
             # James: Added in full_name and email to JSON to be able to use for "Myprofile" page
 
     def get_highest_user_id(self):

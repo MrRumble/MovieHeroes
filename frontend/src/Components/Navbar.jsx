@@ -57,6 +57,14 @@ const Navbar = () => {
           >
             About
           </span>
+
+          <span
+            className={`nav-link ${currentPage === "/yourpicks" ? 'active' : ''}`}
+            onClick={() => handleNavigation("/yourpicks")}
+          >
+            Your Picks
+          </span>
+
           <span
             className={`nav-link ${currentPage === "/tmdb-trending" ? 'active' : ''}`}
             onClick={() => handleNavigation("/tmdb-trending")}
@@ -105,4 +113,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

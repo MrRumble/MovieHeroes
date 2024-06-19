@@ -46,3 +46,13 @@ class MovieRepository:
         connection = self.db["Movie_Heros"]
         movies = connection.find({"title": {"$regex": value, "$options": "i"}})
         return list(movies)
+
+    def initial_rating_films(self):
+        connection = self.db['Movie_Heros']
+        movie_ids = [155, 157336, 694, 597, 68718, 497, 857, 585, 120, 1891]
+        movies = []
+        for id in movie_ids:
+            movie = connection.find_one({'id': id})
+            movie_dict = {'id': movie['id'], 'title': movie['title'], 'poster_path': movie['poster_path'], 'backdrop_path': movie['backdrop_path']}
+            movies.append(movie_dict)
+        return movies

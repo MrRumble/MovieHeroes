@@ -37,7 +37,11 @@ const TopMovies = () => {
                             <p >{movie.overview}</p>
                             <br></br>
                             <p className='vote-average'>{movie.vote_average}</p>
-                            <div className="movie-number">Movie Heroes users ranked {movie.title} the number <span className="rank">{index + 1}</span> film of all time.</div>
+                            {foundMovies.length > 0 ?
+                                ""
+                                :
+                                <div className="movie-number">Movie Heroes users ranked {movie.title} the number <span className="rank">{index + 1}</span> film of all time.</div>
+                            }
                         </div>
                     </a>
                 ))}

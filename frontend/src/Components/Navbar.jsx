@@ -90,15 +90,7 @@ const Navbar = () => {
                 Signup
               </span>
             </>
-          )}
-            <div className = "navbar-left">
-                <div>
-                    <SearchBar/>
-                    {/* setResults={setResults} */}
-                    {/* {results && results.length > 0 && <SearchResultsList results={results} token={token}/>} */}
-                </div>
-            </div>
-          
+          )}          
           {userName && (
             <button className={`nav-link ${currentPage === "/logout" ? 'active' : ''}`} onClick={handleLogout}>
               Logout

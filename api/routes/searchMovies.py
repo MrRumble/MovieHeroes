@@ -22,6 +22,7 @@ def search_for_movies():
         # Convert ObjectId to string for JSON serialization
         for movie in movies:
             movie['_id'] = str(movie['_id'])
+            movie['vote_average'] = round(movie['vote_average']/2, 2)
         
         # print(jsonify(movies))
         return jsonify(movies)

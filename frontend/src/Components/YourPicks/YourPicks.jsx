@@ -46,6 +46,7 @@ const YourPicks = () => {
             }
         },
     };
+    // <a key={index} href={`/movie_page/${movie.id}`} className={`movie-tile ${index + 1}`}>
 
     return (
         <div className="your-picks-home" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${backgroundImage})` }}>
@@ -59,7 +60,8 @@ const YourPicks = () => {
             <Slider {...settings}>
                 {userMoviePicks.map((movie, index) => (
                     <div key={index} className="slider-item">
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster-image" />
+                        
+                        <a key={index} href={`/movie_page/${movie.id}`} className={`movie-tile1 ${index + 1}`}><img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster-image" /></a>
                     </div>
                 ))}
             </Slider>

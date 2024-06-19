@@ -1,0 +1,22 @@
+.home {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.slider-item {
+    padding: 20px;
+    text-align: center;
+}
+
+.poster-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.movie-title {
+    color: #edafed; /* Change text color as needed */
+    font-size: 1.5em;
+    margin-bottom: 20px; /* Add some space between the title and the poster */
+}

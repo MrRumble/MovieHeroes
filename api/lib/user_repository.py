@@ -7,7 +7,7 @@ from bson import ObjectId
 
 class UserRepository():
     def __init__(self, connection):
-        self.db = connection
+        self.db = connection.get_db()
         self.user_details_errors = {'password': "", 'email': "" , "login" : ""}
 
     #Create a new user

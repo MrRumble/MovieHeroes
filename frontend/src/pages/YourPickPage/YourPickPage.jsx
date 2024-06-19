@@ -11,7 +11,7 @@ const YourPickPage = () => {
         
         const fetchData = async () => {
             try {
-                const response = await fetch('/recommendations/1'); // CHANGE HERE
+                const response = await fetch('http://localhost:5001/recommendations/1'); // CHANGE HERE
                 const result = await response.json();
                 setData(result);
                 setLoading(false);

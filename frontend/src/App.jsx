@@ -8,6 +8,7 @@ import TmdbTrendingPage from "./pages/TmdbTrendingPage/TmdbTrendingPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 
 import Myprofilepage from "./pages/MyProfilePage/MyProfile";
+import YourPickPage from "./pages/YourPickPage/YourPickPage";
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
   {
     path: "/myprofile",
     element: <Myprofilepage/>
+  },
+  {
+    path: "/yourpicks",
+    element: <YourPickPage/>
   }
+
 ]);
 
 const App = () => {

@@ -6,6 +6,7 @@ import MoviePage from "./pages/MoviePage/MoviePage";
 import Aboutpage from "./pages/AboutPage/Aboutpage";
 import TmdbTrendingPage from "./pages/TmdbTrendingPage/TmdbTrendingPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
+import MovieSearchResultsPage from "./pages/MovieSearchResultsPage/MoviesSearchResult";
 import InitialRatings from "./Components/InitialRatings/InitialRatings";
 import Myprofilepage from "./pages/MyProfilePage/MyProfile";
 import YourPickPage from "./pages/YourPickPage/YourPickPage";
@@ -46,10 +47,13 @@ const router = createBrowserRouter([
     element: <YourPickPage/>
   },
   {
+    path: "/movie_results",
+    element: <MovieSearchResultsPage/>
+  },
+  {
     path: "/initial_ratings",
     element: <InititalRatingsPage/>
   }
-
 ]);
 
 const App = () => {

@@ -40,13 +40,13 @@
 
 .login-tile input[type="submit"] {
   cursor: pointer;
-  background-color: #bf00bf;
+  background-color: #bf00bf !important;
   color: rgb(255, 255, 255);
   border: none;
 }
 
 .login-tile input[type="submit"]:hover {
-  background-color: #ff57eb;
+  background-color: #ff57eb !important;
 }
 
 .error-message {

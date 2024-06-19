@@ -14,7 +14,6 @@ const SearchBar = ({input, setInput, setFoundMovies}) => {
             const searchedMovies = await searchMovies(token, input);
             setInput("");
             setFoundMovies(searchedMovies)
-            console.log("!!!!!!!!",searchedMovies)
             localStorage.setItem("searchedMovies", JSON.stringify(searchedMovies)); // Store as JSON string
             navigate("/movie_results")
         } catch (error) {

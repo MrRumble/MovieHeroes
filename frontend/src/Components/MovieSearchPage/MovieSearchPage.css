@@ -1,3 +1,8 @@
+.movieSearchResultsPage{
+    background-color: black;
+    height:100vh;
+}
+
 .movies-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */

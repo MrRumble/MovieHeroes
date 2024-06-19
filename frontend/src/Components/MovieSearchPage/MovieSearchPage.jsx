@@ -1,9 +1,9 @@
-import './TopMovies.css'; // Import your CSS file for styling
-import Navbar from '../../Components/Navbar';
-import SearchBar from '../../Components/SearchBar/SearchBar';
+import './MovieSearchPage.css'; // Import your CSS file for styling
+import Navbar from '../Navbar';
+import SearchBar from '../SearchBar/SearchBar';
 import { useState } from 'react';
 
-const MovieSearchResultsPage = () =>{
+const MovieSearchPage = () =>{
     const [input, setInput] = useState("");
     const [foundMovies, setFoundMovies] = useState([])
 
@@ -13,18 +13,12 @@ const MovieSearchResultsPage = () =>{
     const searchedMovies = JSON.parse(searchedMoviesString) || []; // Parse the string and provide a fallback to an empty array
     
     return (
-        <>
+        <div className='movieSearchResultsPage'>
+            <div>
             <Navbar userName={fullName} /> 
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
+            </div>
             <SearchBar input={input} setInput = {setInput} foundMovies={foundMovies} setFoundMovies={setFoundMovies}/>
-
             <div className="movies-container">
-
                 {searchedMovies.map((movie, index) => (
                     <a key={index} href={`/movie_page/${movie.id}`} className={`movie-tile ${index + 1}`}>
                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
@@ -38,11 +32,11 @@ const MovieSearchResultsPage = () =>{
                     </a>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
 
-export default MovieSearchResultsPage;
+export default MovieSearchPage;
 
 

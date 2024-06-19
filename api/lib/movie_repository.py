@@ -45,5 +45,4 @@ class MovieRepository:
     def find_all_movies(self, value):
         connection = self.db["Movie_Heros"]
         movies = connection.find({"title": {"$regex": value, "$options": "i"}})
-        # print(list(movies))
         return list(movies)

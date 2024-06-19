@@ -27,6 +27,7 @@ def recommended_movies(user_id):
         except:
             pass
     
-    return jsonify(movies_dicts)
+    #Sort the movies_dicts in descending order of highest vote_average value.
+    sorted_movies = sorted(movies_dicts, key=lambda x: x.get('vote_average', 0), reverse=True)
 
-#undo
+    return jsonify(sorted_movies)

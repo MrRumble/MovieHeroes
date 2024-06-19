@@ -1,19 +1,29 @@
-// const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-// export async function searchForMovie(token) { 
-//     const requestOptions = {
-//         method: "GET",
-//         headers: {
-//             Authorization: `Bearer ${token}`, 
-//         },
-//     };
-
-//     let response = await fetch(`${BACKEND_URL}/searchMovies`, requestOptions);
+export const searchMovies = async (token, value) => {
+    const payload = {
+        value: value
+    };
     
-//     if (response.status !== 200) {
-//         throw new Error("Failed to fetch avatar");
-//     }
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+    };
 
-//     const data = await response.json();
-//     return data.updated_user.avatar;
-// }
+    let response = await fetch(`${BACKEND_URL}/searchMovies`, requestOptions);
+    
+
+    const data = await response.json()
+
+    // console.log("this is the searchMovies response", data)
+    
+    if (response.status !== 200) {
+    throw new Error("Unable to an avatar");
+    } else {
+    return data
+    }
+};

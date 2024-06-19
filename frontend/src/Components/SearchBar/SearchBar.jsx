@@ -1,73 +1,37 @@
 import { FaSearch } from "react-icons/fa";
-import { useState} from "react";
+import {searchMovies} from '../../services/searchMovies'
+import "./SearchBar.css"
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const SearchBar = ({input, setInput, setFoundMovies}) => {
 
+    const token = localStorage.getItem('token');
 
-const SearchBar = ({ setResults }) => {
-    const [input, setInput] = useState("");
-
-    const fetchData = (value) => {
-        console.log(BACKEND_URL)
-        fetch(`${BACKEND_URL}/searchMovies`) 
-        .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-        .then((json) => {
-            console.log(json)
-                const results = json.filter((movie) => {
-                    console.log(movie)
-                return (
-                    value &&
-                    movie &&
-                    (movie.title.toLowerCase().includes(value))
-                );
-            });
-            setResults(results);
-
-            console.log(results)
-        });
-};
-    const handleChange = (value) => {
-        setInput(value);
-        fetchData(value);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const searchedMovies = await searchMovies(token, input);
+            setInput("");
+            // console.log("!!!!!!!!",searchedMovies)
+            setFoundMovies(searchedMovies)
+        } catch (error) {
+            console.error("Failed to update avatar:", error);
+        }
     };
-
-
-
-    
-// const handleSearch = async(event) =>{
-//     event.preventDefault();
-//     const response = await searchForMovie()
-//     const results = response.users.filter((user) => {
-//                     console.log(user)
-//                 return (
-//                     value &&
-//                     user &&
-//                     (user.forename.toLowerCase().includes(value)||
-//                     user.surname.toLowerCase().includes(value))
-//                 );
-//             });
-//             setResults(results);
-
-//             console.log(results)
-//         });
-// };
-//     const handleChange = (value) => {
-//         setInput(value);
-//         fetchData(value);
-
-//     };
 
     return (
         <div className="input-wrapper">
-            <input
-                id="searchinput" autoComplete="off" type="text" placeholder="Search movies..." 
-                value={input}  onChange={(e) => handleChange(e.target.value)}/>
-            <FaSearch id="search-icon" />
+            <form onSubmit={handleSubmit} className="searchBar-form">
+                <input
+                    id="searchinput"  
+                    type="text" 
+                    placeholder="Search movies..." 
+                    value={input}  
+                    onChange={(e) => setInput(e.target.value)}
+                />
+                <button id="submit" type="submit" value="Save Avatar">
+                    <FaSearch id="search-icon" />
+                </button>
+            </form>
         </div>
     )
 }

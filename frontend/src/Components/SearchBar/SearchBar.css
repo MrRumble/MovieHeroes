@@ -1,4 +1,4 @@
-.input-wrapper {
+.searchBar-wrapper {
     display: flex;
     justify-content: center;
     margin-top: 1.5em
@@ -13,7 +13,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#searchinput {
+#searchBar-searchinput {
     border: none;
     outline: none;
     padding: 10px;
@@ -24,7 +24,7 @@
     height: 2em;
 }
 
-#submit {
+#searchBar-submit {
     background-color: transparent;
     border: none;
     cursor: pointer;

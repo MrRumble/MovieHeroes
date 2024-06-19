@@ -19,16 +19,16 @@ const SearchBar = ({input, setInput, setFoundMovies}) => {
     };
 
     return (
-        <div className="input-wrapper">
+        <div className="searchBar-wrapper">
             <form onSubmit={handleSubmit} className="searchBar-form">
                 <input
-                    id="searchinput"  
+                    id="searchBar-searchinput"  
                     type="text" 
                     placeholder="Search movies..." 
                     value={input}  
                     onChange={(e) => setInput(e.target.value)}
                 />
-                <button id="submit" type="submit" value="Save Avatar">
+                <button id="searchBar-submit" type="submit" value="Save Avatar">
                     <FaSearch id="search-icon" />
                 </button>
             </form>

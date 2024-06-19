@@ -17,14 +17,14 @@ const TopMovies = () => {
             console.error("Error fetching data:", error);
         });
     }, []);
-
+    
     let listMovies = []
     if (foundMovies.length > 0){
         listMovies = foundMovies
     } else {
         listMovies = topMovies
     }
-
+    // console.log(listMovies);
     return (
         <>
             <SearchBar input={input} setInput = {setInput} foundMovies={foundMovies} setFoundMovies={setFoundMovies}/>

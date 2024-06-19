@@ -11,6 +11,8 @@ class RatingRepository:
         ratings = []
         for row in rows:
             rating = Rating(row["userId"], row["movieId"], row["rating"])
+        
             ratings.append(rating)
         df = pd.DataFrame.from_records([rating.__dict__ for rating in ratings])
         return df
+    

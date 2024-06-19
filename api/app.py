@@ -20,6 +20,7 @@ app.config['MONGO_URI'] = os.getenv('MONGODB_URL')
 
 CORS(app)
 
+from routes.recommended_movie_route import *
 from routes.userProfile import *
 from routes.signup import *
 from routes.login import *

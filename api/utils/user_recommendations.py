@@ -1,24 +1,49 @@
-from similar import find_similar_movies
+from .movie_recommendations import find_similar_movies, create_matrix
+from lib.rating_repository import RatingRepository
+import pandas as pd
+from lib.database_connection import get_db
+import time
 
 def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_mapper, k=10):
-	df1 = ratings[ratings['userId'] == user_id]
+    print('1')
+    db = get_db()
+    print('2')
+    links = db['links']
+    print('3')
+    rating_repo = RatingRepository(db)
+    print('4')
+    all_ratings = rating_repo.all_ratings() #slow here
+    print('5')
+    ratings_df = all_ratings[all_ratings['userId'] == user_id]
+    print('6')
+    top_rated_df = ratings_df[ratings_df['rating'] == 5]
+    print('7')
+    most_recent_top_5 = top_rated_df.head(1) #Reduced to find similar movies to just 1, to improve speed (for now)
+    print('8')
+    most_recent_top_5_list = most_recent_top_5['movieId'].tolist()
+    print(most_recent_top_5_list, "MOST RECENT ")
 
-	if df1.empty:
-		print(f"User with ID {user_id} does not exist.")
-		return
+    movies_list = []
+    for movie in most_recent_top_5_list:
+        found_movie = links.find_one({"movieId": movie})
+        tmdb_found_movie_id = found_movie['tmdbId']
+        
+        # Measure time for find_similar_movies
+        start_time = time.time()
+        similar_ids = find_similar_movies(tmdb_found_movie_id, db, movie_mapper, movie_inv_mapper, X, k=10)
+        end_time = time.time()
+        
+        execution_time = end_time - start_time
+        print(f"Time taken for find_similar_movies for movieId {movie}: {execution_time} seconds")
+        
+        movies_list.append(similar_ids)
+    
+    flattened_list = [item for sublist in movies_list for item in sublist]
+    print(flattened_list)
+    return flattened_list
 
-	movie_id = df1[df1['rating'] == max(df1['rating'])]['movieId'].iloc[0]
-
-	movie_titles = dict(zip(movies['movieId'], movies['title']))
-
-	similar_ids = find_similar_movies(movie_id, X, k)
-	movie_title = movie_titles.get(movie_id, "Movie not found")
-
-	if movie_title == "Movie not found":
-		print(f"Movie with ID {movie_id} not found.")
-		return
-
-	print(f"Since you watched {movie_title}, you might also like:")
-	for i in similar_ids:
-		print(movie_titles.get(i, "Movie not found"))
-
+# TODO Refactor to include cases where no 5 star ratings
+# TODO Think about the case when zero ratings. Do we want 
+# to recommend based off less than 4 star rating
+# TODO ORDER flattened_list MOVIE_IDs in order of vote_average
+# TODO WRITE logic to make sure flattened_list doesn't include duplicate movie_ids

@@ -15,13 +15,12 @@ const YourPickPage = () => {
                 const response = await fetch(`http://localhost:5001/recommendations/1`);
                 const result = await response.json();
                 setData(result);
-                console.log("result from main page: ",result);
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
                 setLoading(false); // Handle error by stopping the loading state
             }
-        };
+        }; // This block relates to loading widget
 
         fetchData();
     }, []);

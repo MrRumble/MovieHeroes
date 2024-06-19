@@ -18,7 +18,7 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
     print('6')
     top_rated_df = ratings_df[ratings_df['rating'] == 5]
     print('7')
-    most_recent_top_5 = top_rated_df.head(1)
+    most_recent_top_5 = top_rated_df.head(1) #Reduced to find similar movies to just 1, to improve speed (for now)
     print('8')
     most_recent_top_5_list = most_recent_top_5['movieId'].tolist()
     print(most_recent_top_5_list, "MOST RECENT ")

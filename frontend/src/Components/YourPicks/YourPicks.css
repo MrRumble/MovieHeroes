@@ -12,6 +12,17 @@
     justify-content: center; 
 }
 
+.your-picks-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust transparency to darken/lighten */
+    z-index: -1; /* Place the overlay behind content */
+}
+
 .carousel-container {
     display: flex;
     justify-content: center;
@@ -70,4 +81,21 @@
 .movie-rating {
     font-size: 16px;
     margin: 0;
+}
+
+.movie-tile1 {
+    position: relative;
+    overflow: hidden; /* Ensure image doesn't overflow */
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.movie-tile1 img {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.movie-tile1:hover {
+    transform: scale(1.05); /* Scale up slightly on hover */
 }

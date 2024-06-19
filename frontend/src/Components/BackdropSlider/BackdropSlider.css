@@ -1,0 +1,32 @@
+.backdrop-slider {
+    width: 100vw !important; /* Full viewport width */
+    height: 100vh !important; /* Full viewport height */
+    overflow: hidden;
+    position: relative;
+    background-size: cover !important;
+    background-position: center;
+}
+.backdrop-slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.879) !important; /* Adjust transparency as needed */
+}
+
+.slider-item {
+    width: 100vh ; /* Ensure each slide occupies full width */
+    height: 100vh; /* Ensure each slide occupies full height */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.backdrop-image {
+    width: 100% !important; /* Ensure image fills its container */
+    height: 100% !important; /* Ensure image fills its container */
+    object-fit: cover; 
+}
+

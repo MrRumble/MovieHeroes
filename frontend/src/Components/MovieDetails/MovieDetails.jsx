@@ -100,14 +100,16 @@ const MovieDetails = () => {
                     );
                 })}
             </div>
-            <h1>{movie.id}</h1>
+
             <p>{movie.overview}</p>
             <p><strong>Release Date:</strong> {movie.release_date}</p>
             <ul>
                 {movie.similar.map((similarMovie, index) => (
                     <li key={index}>
-                        <p>{similarMovie.title}</p>
-                        <img src={`https://image.tmdb.org/t/p/w500${similarMovie.poster_path}`} alt={similarMovie.title} />
+                        <a href={`/movie_page/${similarMovie.id}`}>
+                            <p>{similarMovie.title}</p>
+                            <img src={`https://image.tmdb.org/t/p/w500${similarMovie.poster_path}`} alt={similarMovie.title} />
+                        </a>
                     </li>
                 ))}
             </ul>

@@ -74,7 +74,7 @@ const InitialRatings = () => {
     };
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 1000,
         slidesToShow: 1,
@@ -105,53 +105,55 @@ const InitialRatings = () => {
         <div className="home">
             <Slider {...settings} ref={sliderRef}>
                 {initialRatings.map((movie, index) => (
-                    <div key={index} className="slider-item">
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster-image" />
-                        <div>
-                            {[...Array(totalStars)].map((_, starIndex) => {
-                                const currentRating = starIndex + 1;
-                                return (
-                                    <label key={starIndex}>
-                                        <input
-                                            type="radio"
-                                            name={`rating-${movie.id}`}
-                                            value={currentRating}
-                                            onChange={() => handleRatingChange(movie.id, currentRating)}
-                                            style={{ display: "none" }}
-                                        />
-                                        <span
-                                            className="star"
-                                            style={{
-                                                color: currentRating <= (ratings[movie.id]?.hover || ratings[movie.id]?.rating) ? "#ffc107" : "#e4e5e9",
-                                                cursor: "pointer",
-                                                fontSize: "24px"
-                                            }}
-                                            onMouseEnter={() => {
-                                                const updatedRatings = {
-                                                    ...ratings,
-                                                    [movie.id]: {
-                                                        ...ratings[movie.id],
-                                                        hover: currentRating
-                                                    }
-                                                };
-                                                setRatings(updatedRatings);
-                                            }}
-                                            onMouseLeave={() => {
-                                                const updatedRatings = {
-                                                    ...ratings,
-                                                    [movie.id]: {
-                                                        ...ratings[movie.id],
-                                                        hover: null
-                                                    }
-                                                };
-                                                setRatings(updatedRatings);
-                                            }}
-                                        >
-                                            &#9733;
-                                        </span>
-                                    </label>
-                                );
-                            })}
+                    <div key={index} className="slider-item" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})` }}>
+                        <div className="poster-container">
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster-image" />
+                            <div className="rating-stars">
+                                {[...Array(totalStars)].map((_, starIndex) => {
+                                    const currentRating = starIndex + 1;
+                                    return (
+                                        <label key={starIndex}>
+                                            <input
+                                                type="radio"
+                                                name={`rating-${movie.id}`}
+                                                value={currentRating}
+                                                onChange={() => handleRatingChange(movie.id, currentRating)}
+                                                style={{ display: "none" }}
+                                            />
+                                            <span
+                                                className="star"
+                                                style={{
+                                                    color: currentRating <= (ratings[movie.id]?.hover || ratings[movie.id]?.rating) ? "#ffc107" : "#e4e5e9",
+                                                    cursor: "pointer",
+                                                    fontSize: "24px"
+                                                }}
+                                                onMouseEnter={() => {
+                                                    const updatedRatings = {
+                                                        ...ratings,
+                                                        [movie.id]: {
+                                                            ...ratings[movie.id],
+                                                            hover: currentRating
+                                                        }
+                                                    };
+                                                    setRatings(updatedRatings);
+                                                }}
+                                                onMouseLeave={() => {
+                                                    const updatedRatings = {
+                                                        ...ratings,
+                                                        [movie.id]: {
+                                                            ...ratings[movie.id],
+                                                            hover: null
+                                                        }
+                                                    };
+                                                    setRatings(updatedRatings);
+                                                }}
+                                            >
+                                                &#9733;
+                                            </span>
+                                        </label>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 ))}

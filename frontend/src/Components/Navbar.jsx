@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import MovieHero from "../assets/MovieHero.png";
-import MovieHeroPurple from "../assets/MovieHeroPurple.jpg";
+import MovieHeroPurple from "../assets/MovieHeroPurple.png";
 import LoggedInAs from "./LoggedInAs/LoggedInAs"; // Import LoggedInAs component
 import SearchBar from "./SearchBar/SearchBar";
 

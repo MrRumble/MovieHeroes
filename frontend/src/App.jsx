@@ -6,8 +6,12 @@ import MoviePage from "./pages/MoviePage/MoviePage";
 import Aboutpage from "./pages/AboutPage/Aboutpage";
 import TmdbTrendingPage from "./pages/TmdbTrendingPage/TmdbTrendingPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
+import InitialRatings from "./Components/InitialRatings/InitialRatings";
+import MovieSearchResultsPage from "./pages/MovieSearchResultsPage/MoviesSearchResult";
 
 import Myprofilepage from "./pages/MyProfilePage/MyProfile";
+import YourPickPage from "./pages/YourPickPage/YourPickPage";
+import InititalRatingsPage from "./pages/InititalRatingPage/InitialRatingPage";
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([
@@ -38,6 +42,18 @@ const router = createBrowserRouter([
   {
     path: "/myprofile",
     element: <Myprofilepage/>
+  },
+  {
+    path: "/yourpicks",
+    element: <YourPickPage/>
+  },
+  {
+    path: "/initial_ratings",
+    element: <InititalRatingsPage/>
+  },
+  {
+    path: "/movie_results",
+    element: <MovieSearchResultsPage/>
   }
 ]);
 

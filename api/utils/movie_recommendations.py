@@ -12,14 +12,12 @@ import time
 
 
 def find_similar_movies(movie_id, db, movie_mapper, movie_inv_mapper, X, k, metric='cosine', show_distance=False):
-
 	neighbour_ids = []
 
 	link_repo = LinkRepository(db)
 	connection = db["links"]
 
 	movie_id = link_repo.to_movieId(movie_id, connection)
-
 	movie_ind = movie_mapper[movie_id]
 	movie_vec = X[movie_ind]
 	k+=1
@@ -29,33 +27,15 @@ def find_similar_movies(movie_id, db, movie_mapper, movie_inv_mapper, X, k, metr
 	neighbour = kNN.kneighbors(movie_vec, return_distance=show_distance)
 	for i in range(0,k):
 		n = neighbour.item(i)
-		neighbour_ids.append(link_repo.to_tmdb_id(movie_inv_mapper[n], connection))
-	neighbour_ids.pop(0)
+		try:
+			neighbour_ids.append(link_repo.to_tmdb_id(movie_inv_mapper[n], connection))
+		except:
+			pass
+	if neighbour_ids:
+		neighbour_ids.pop(0)
+	neighbour_ids = [i for i in neighbour_ids if i is not None]
 	return neighbour_ids
 
-# db = get_db()
-# movies_db = MovieRepository(db)
-# all_movies = movies_db.find_all()
-# movies = pd.DataFrame.from_records([movie.__dict__ for movie in all_movies])
-# links = pd.read_csv("../ml-latest-small/links.csv") 
-# ratings = pd.read_csv("../ml-latest-small/ratings.csv")
-
-# X, user_mapper, movie_mapper, user_inv_mapper, movie_inv_mapper = create_matrix(ratings)
-
-
-
-# movie_titles = dict(zip(movies['movieId'], movies['title']))
-
-
-# movie_id = links.loc[links['tmdbId'] == 238, 'movieId'].item()
-
-
-# similar_ids = find_similar_movies(movie_id, X, k=10)
-# movie_title = movie_titles[movie_id]
-
-# print(f"Since you watched {movie_title}")
-# for i in similar_ids:
-# 	print(movie_titles[i])
 
 
 

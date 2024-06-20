@@ -1,24 +1,52 @@
-from similar import find_similar_movies
+from .movie_recommendations import find_similar_movies, create_matrix
+from lib.rating_repository import RatingRepository
+import pandas as pd
+from lib.database_connection import get_db
+import time
 
 def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_mapper, k=10):
-	df1 = ratings[ratings['userId'] == user_id]
+    
+    db = get_db()
 
-	if df1.empty:
-		print(f"User with ID {user_id} does not exist.")
-		return
+    links = db['links']
 
-	movie_id = df1[df1['rating'] == max(df1['rating'])]['movieId'].iloc[0]
+    rating_repo = RatingRepository(db)
 
-	movie_titles = dict(zip(movies['movieId'], movies['title']))
+    all_ratings = rating_repo.all_ratings() #slow here
 
-	similar_ids = find_similar_movies(movie_id, X, k)
-	movie_title = movie_titles.get(movie_id, "Movie not found")
+    ratings_df = all_ratings[all_ratings['userId'] == user_id]
 
-	if movie_title == "Movie not found":
-		print(f"Movie with ID {movie_id} not found.")
-		return
+    if ratings_df.empty: #This is for the case when the user has not rated any films yet
+        return []
 
-	print(f"Since you watched {movie_title}, you might also like:")
-	for i in similar_ids:
-		print(movie_titles.get(i, "Movie not found"))
+    top_rated_df = ratings_df[(ratings_df['rating'] == 5) | (ratings_df['rating'] == 4)]
+
+    if top_rated_df.empty: #This is for the case when the user has rated films, but none at 4 or 5 star.
+        return []
+
+    most_recent_top_5 = top_rated_df.head(5) #Reduced to find similar movies to just 1, to improve speed (for now)
+
+    most_recent_top_5_list = most_recent_top_5['movieId'].tolist()
+
+    movies_set = set()
+    for movie in most_recent_top_5_list:
+        found_movie = links.find_one({"movieId": movie})
+        tmdb_found_movie_id = found_movie['tmdbId']
+        
+        # Measure time for find_similar_movies
+        start_time = time.time()
+        similar_ids = find_similar_movies(tmdb_found_movie_id, db, movie_mapper, movie_inv_mapper, X, k=10)
+        end_time = time.time()
+        
+        execution_time = end_time - start_time
+        print(f"Time taken for find_similar_movies for movieId {movie}: {execution_time} seconds")
+        
+
+    
+        movies_set.update(similar_ids)
+    return list(movies_set)
+
+
+
+# TODO ORDER flattened_list MOVIE_IDs in order of vote_average
 

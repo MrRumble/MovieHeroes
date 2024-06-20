@@ -6,7 +6,6 @@ export const updateAvatar = async (token=null, avatar) => {
         avatar:avatar
     
     };
-    // console.log("this is PAYLOAD", payload);
     
     const requestOptions = {
         method: "POST",

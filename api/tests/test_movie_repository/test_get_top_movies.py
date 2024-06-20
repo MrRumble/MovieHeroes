@@ -28,7 +28,7 @@ def test_find_top_movies_returns_top_movies():
     "release_date": datetime.datetime(1994, 9, 23, 0, 0),
     "title": "Title1",
     "video": False,
-    "vote_average": 8.705,
+    "vote_average": 4.35,
     "vote_count": 50
   },
   {
@@ -48,7 +48,7 @@ def test_find_top_movies_returns_top_movies():
     "release_date": datetime.datetime(1972, 3, 14, 0, 0),
     "title": "Title2",
     "video": False,
-    "vote_average": 8.694,
+    "vote_average": 4.35,
     "vote_count": 100
   },
   {
@@ -68,7 +68,7 @@ def test_find_top_movies_returns_top_movies():
     "release_date": datetime.datetime(1972, 3, 14, 0, 0),
     "title": "Title3",
     "video": False,
-    "vote_average": 7.0,
+    "vote_average": 3.5,
     "vote_count": 150
   }
 ]

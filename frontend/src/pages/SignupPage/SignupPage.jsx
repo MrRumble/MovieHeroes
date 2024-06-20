@@ -6,6 +6,8 @@ import { signup } from "../../services/authentication";
 import { Link } from 'react-router-dom';
 import "./SignupPage.css";
 import Navbar from "../../Components/Navbar";
+import BackdropSlider from "../../Components/BackdropSlider/BackdropSlider"; // Import the BackdropSlider component
+
 
 const SignupPage = () => {
 const [fullName, setFullName] = useState("");
@@ -58,6 +60,7 @@ const navigate = useNavigate();
     return (
         <>
         <Navbar />
+        <BackdropSlider /> {/* Render the BackdropSlider component */}
         <div className="signup-container">
             <div className="signup-content">
                 <h2>Sign Up for Your Free Account!</h2>

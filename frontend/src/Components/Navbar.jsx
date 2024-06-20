@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import MovieHero from "../assets/MovieHero.png";
+import MovieHeroPurple from "../assets/MovieHeroPurple.jpg";
 import LoggedInAs from "./LoggedInAs/LoggedInAs"; // Import LoggedInAs component
+import SearchBar from "./SearchBar/SearchBar";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -42,7 +44,7 @@ const Navbar = () => {
         >
           <h1 className="navbar-title">
             <img
-              src={MovieHero}
+              src={MovieHeroPurple}
               className="navbar-logo"
               alt="Movie Hero logo"
             />
@@ -56,6 +58,21 @@ const Navbar = () => {
           >
             About
           </span>
+          
+
+          <span
+            className={`nav-link ${currentPage === "/yourpicks" ? 'active' : ''}`}
+            onClick ={() => {
+              if (userName) {
+                handleNavigation("/yourpicks");
+              } else {
+                handleNavigation("/login");
+              }}}
+              >
+
+            Your Picks
+          </span>
+
           <span
             className={`nav-link ${currentPage === "/tmdb-trending" ? 'active' : ''}`}
             onClick={() => handleNavigation("/tmdb-trending")}
@@ -89,7 +106,7 @@ const Navbar = () => {
                 Signup
               </span>
             </>
-          )}
+          )}          
           {userName && (
             <button className={`nav-link ${currentPage === "/logout" ? 'active' : ''}`} onClick={handleLogout}>
               Logout

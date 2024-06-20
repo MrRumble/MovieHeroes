@@ -1,5 +1,5 @@
 from lib.movie import Movie
-from pymongo import DESCENDING
+from pymongo import DESCENDING, mongo_client
 from flask import jsonify
 from lib.database_connection import get_db
 
@@ -40,4 +40,19 @@ class MovieRepository:
             movie = Movie(row["id"], row["title"], overview, poster_path, backdrop_path, row["vote_average"], row["release_date"])
             movies.append(movie)
         return movies
-    
+
+
+    def find_all_movies(self, value):
+        connection = self.db["Movie_Heros"]
+        movies = connection.find({"title": {"$regex": value, "$options": "i"}})
+        return list(movies)
+
+    def initial_rating_films(self):
+        connection = self.db['Movie_Heros']
+        movie_ids = [155, 157336, 694, 597, 68718, 497, 857, 585, 120, 1891]
+        movies = []
+        for id in movie_ids:
+            movie = connection.find_one({'id': id})
+            movie_dict = {'id': movie['id'], 'title': movie['title'], 'poster_path': movie['poster_path'], 'backdrop_path': movie['backdrop_path']}
+            movies.append(movie_dict)
+        return movies

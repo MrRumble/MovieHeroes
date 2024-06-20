@@ -7,14 +7,14 @@ class LinkRepository:
         self.db = db
 
     def to_tmdb_id(self, id, link_db):
-        rows = link_db.find()
-        for row in rows:
-            if int(row["movieId"]) == id:
-                return row["tmdbId"]
+        rows = link_db.find_one({"movieId": int(id)})
+        # for row in rows:
+        #     if int(row["movieId"]) == id:
+        return rows["tmdbId"]
         
     def to_movieId(self, id, link_db):
-        rows = link_db.find()
-        for row in rows:
-            if int(row["tmdbId"]) == id:
-                return row["movieId"]
+        rows = link_db.find_one({"tmdbId": int(id)})
+        # for row in rows:
+        #     if int(row["movieId"]) == id:
+        return rows["movieId"]
     

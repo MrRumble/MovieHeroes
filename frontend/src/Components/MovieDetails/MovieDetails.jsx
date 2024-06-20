@@ -31,7 +31,6 @@ const MovieDetails = () => {
             <h3>Overview:</h3>
             <p>{movie.overview}</p>
             <p><strong>Release Date:</strong> {movie.release_date}</p>
-            <p><strong>Genre:</strong> {movie.genre}</p>
             <ul>
                 {movie.similar.map((movie, index) => (
                     <li key={index}>

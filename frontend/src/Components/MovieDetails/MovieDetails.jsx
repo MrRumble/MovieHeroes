@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./MovieDetails.css";  
 import { useParams } from 'react-router-dom';
 import "./Ratings.css";
 
@@ -102,7 +103,6 @@ const MovieDetails = () => {
             <h1>{movie.id}</h1>
             <p>{movie.overview}</p>
             <p><strong>Release Date:</strong> {movie.release_date}</p>
-            <p><strong>Genre:</strong> {movie.genre}</p>
             <ul>
                 {movie.similar.map((similarMovie, index) => (
                     <li key={index}>

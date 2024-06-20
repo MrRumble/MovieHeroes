@@ -31,7 +31,8 @@ def find_similar_movies(movie_id, db, movie_mapper, movie_inv_mapper, X, k, metr
 			neighbour_ids.append(link_repo.to_tmdb_id(movie_inv_mapper[n], connection))
 		except:
 			pass
-	neighbour_ids.pop(0)
+	if neighbour_ids:
+		neighbour_ids.pop(0)
 	neighbour_ids = [i for i in neighbour_ids if i is not None]
 	return neighbour_ids
 

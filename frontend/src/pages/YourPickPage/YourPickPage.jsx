@@ -2,28 +2,32 @@ import React, { useState, useEffect } from 'react';
 import Navbar from "../../Components/Navbar";
 import YourPicks from "../../Components/YourPicks/YourPicks";
 import Loading from "../../Components/LoadingWidget/Loading";
-import "./YourPickPage.css"
+import "./YourPickPage.css";
 
 const YourPickPage = () => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
+    const user_id = localStorage.getItem("user_id");
 
     useEffect(() => {
-        
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/recommendations/1`);
+                const response = await fetch(`http://localhost:5001/recommendations/${user_id}`);
                 const result = await response.json();
                 setData(result);
-                setLoading(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
-                setLoading(false); // Handle error by stopping the loading state
             }
-        }; // This block relates to loading widget
+        };
 
         fetchData();
-    }, []);
+
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 4000); // Show loading for at least 2 seconds
+
+        return () => clearTimeout(timer);
+    }, [user_id]);
 
     return (
         <div className='yourpicks-page'>
@@ -31,7 +35,7 @@ const YourPickPage = () => {
             {loading ? (
                 <Loading />
             ) : (
-                <YourPicks data={data} /> // Pass the fetched data to YourPicks component
+                <YourPicks data={data} />
             )}
         </div>
     );

@@ -41,6 +41,7 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
         execution_time = end_time - start_time
         print(f"Time taken for find_similar_movies for movieId {movie}: {execution_time} seconds")
         
+
     
         movies_set.update(similar_ids)
     return list(movies_set)

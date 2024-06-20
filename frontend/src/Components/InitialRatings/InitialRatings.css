@@ -1,11 +1,12 @@
 .home {
+    margin-top:70px;
     text-align: center;
     padding: 20px;
 }
 
-.slider-item {
+.slider-item-slider {
     position: relative;
-    height: 60vh; /* Make the slider item take the full height of the viewport */
+    height: 40vh; /* Make the slider item take the full height of the viewport */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,11 +31,11 @@
 .final-button {
     margin:auto;
     height:fit-content;
-    width: 30%;
+    width: fit-content;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #bf00bf;
+    background-color:  #bf00bf ;
     color: white;
     border: none;
     border-radius: 5px;
@@ -42,5 +43,5 @@
 }
 
 .final-button:hover {
-    background-color:  #ff57eb;
+    background-color:  #ff57eb ;
 }

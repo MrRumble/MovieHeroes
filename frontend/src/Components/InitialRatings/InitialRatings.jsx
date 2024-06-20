@@ -105,7 +105,7 @@ const InitialRatings = () => {
         <div className="home">
             <Slider {...settings} ref={sliderRef}>
                 {initialRatings.map((movie, index) => (
-                    <div key={index} className="slider-item" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})` }}>
+                    <div key={index} className="slider-item-slider " style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})` }}>
                         <div className="poster-container">
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster-image" />
                             <div className="rating-stars">

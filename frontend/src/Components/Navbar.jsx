@@ -57,11 +57,18 @@ const Navbar = () => {
           >
             About
           </span>
+          
 
           <span
             className={`nav-link ${currentPage === "/yourpicks" ? 'active' : ''}`}
-            onClick={() => handleNavigation("/yourpicks")}
-          >
+            onClick ={() => {
+              if (userName) {
+                handleNavigation("/yourpicks");
+              } else {
+                handleNavigation("/login");
+              }}}
+              >
+
             Your Picks
           </span>
 

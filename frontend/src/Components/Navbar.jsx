@@ -48,7 +48,6 @@ const Navbar = () => {
               className="navbar-logo"
               alt="Movie Hero logo"
             />
-            MovieHeroes
           </h1>
         </span>
         <div className="nav-links">

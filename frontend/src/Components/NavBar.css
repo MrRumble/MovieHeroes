@@ -58,9 +58,9 @@
 } */
 
 .navbar-logo{
-  height: 80px;
-  width: 110px;
-  border-radius: 50%;
+  height: 90px;
+  width: 300px;
+  /* border-radius: 50%; */
   margin-right: 10px;
 }
 

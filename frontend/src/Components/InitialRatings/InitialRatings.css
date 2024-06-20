@@ -5,7 +5,7 @@
 
 .slider-item {
     position: relative;
-    height: 100vh; /* Make the slider item take the full height of the viewport */
+    height: 60vh; /* Make the slider item take the full height of the viewport */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,10 +28,13 @@
 }
 
 .final-button {
+    margin:auto;
+    height:fit-content;
+    width: 30%;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007BFF;
+    background-color: #bf00bf;
     color: white;
     border: none;
     border-radius: 5px;
@@ -39,5 +42,5 @@
 }
 
 .final-button:hover {
-    background-color: #0056b3;
+    background-color:  #ff57eb;
 }

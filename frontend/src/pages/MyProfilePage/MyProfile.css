@@ -76,6 +76,8 @@
 
   .profile-detailsPage input[type="submit"], #selectAvatar{
     cursor: pointer;
+    height: fit-content;
+    width:fit-content;
     background-color: #bf00bf !important;
     color: rgb(255, 255, 255);
     border: none;

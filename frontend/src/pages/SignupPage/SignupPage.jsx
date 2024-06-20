@@ -80,7 +80,7 @@ const navigate = useNavigate();
                         type="email"
                         value={email}
                         onChange={handleEmailChange}
-                        onFocus={handleOnFocus}
+                        onFocus={()=>setIsFocused(true)}
                         onBlur={handleBlur}
                     />
                     <div className="error-message">
@@ -100,7 +100,7 @@ const navigate = useNavigate();
                         type="password"
                         value={password}
                         onChange={handlePasswordChange}
-                        onFocus={handleOnFocus}
+                        onFocus={()=>setIsFocused(true)}
                         onBlur={handleBlur}
                     />
                     <div className="error-message">

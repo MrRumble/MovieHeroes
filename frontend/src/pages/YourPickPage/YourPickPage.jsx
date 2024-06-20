@@ -18,25 +18,25 @@ const YourPickPage = () => {
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
+            setLoading(false); // Always set loading to false after fetching data
         };
 
         fetchData();
-
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 4000); // Show loading for at least 2 seconds
-
-        return () => clearTimeout(timer);
     }, [user_id]);
 
     return (
         <div className='yourpicks-page'>
             <Navbar />
-            {loading ? (
-                <Loading />
-            ) : (
-                <YourPicks data={data} />
-            )}
+            <div className="page-content">
+                <div className="recommendation-title">
+                    <h2>Explore our top recommendations, personalized just for you!</h2>
+                </div>
+                {loading ? (
+                    <Loading />
+                ) : (
+                    <YourPicks data={data} />
+                )}
+            </div>
         </div>
     );
 };

@@ -31,7 +31,8 @@
 
 .signup-form input[type="text"],
 .signup-form input[type="email"],
-.signup-form input[type="password"] {
+.signup-form input[type="password"],
+.signup-form input[type="submit"] {
     padding: 10px;
     margin-bottom: 10px;
     width: 200px;

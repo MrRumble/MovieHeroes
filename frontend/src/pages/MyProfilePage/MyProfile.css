@@ -1,9 +1,25 @@
+.my-profile-page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+} 
+ 
  .profile-heading {
-    color: #ffffff
+    color: #b19cd9;
  }
-  
+  .user-details{
+    margin:2em;
+  }
   .profile-details {
-    background-color: #fb95e5;
     height: 100vh;
     padding: 20px;
     padding-top: 100px;
@@ -56,5 +72,16 @@
 
   .avatar-selection{
     color: #ffffff;
+  }
+
+  .profile-detailsPage input[type="submit"], #selectAvatar{
+    cursor: pointer;
+    background-color: #bf00bf !important;
+    color: rgb(255, 255, 255);
+    border: none;
+  }
+  
+  .profile-detailsPage input[type="submit"]:hover, #selectAvatar:hover {
+    background-color: #ff57eb !important;
   }
   

@@ -100,7 +100,7 @@ const MyProfilePage = () => {
             </p>
           </div>
         </div>
-        <button onClick={()=>{navigate("/initial_ratings")}} id="selectAvatar">Rate your favorite movies</button>
+        <button onClick={()=>{navigate("/initial_ratings")}} id="selectAvatar">Rate movies</button>
       </div>
     </div>
   );

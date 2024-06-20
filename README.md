@@ -1,6 +1,6 @@
 # 🎬 MOVIE HEROES 🍿
 
-n a world where endless streaming options leave viewers overwhelmed and indecisive, one website rises above the rest. Discover a realm where personalized recommendations and hidden gems are just a click away. Welcome to MovieHero — the ultimate destination for movie lovers. Are you ready to find your next  film? 🍿😎
+In a world where endless streaming options leave viewers overwhelmed and indecisive, one website rises above the rest. Discover a realm where personalized recommendations and hidden gems are just a click away. Welcome to MovieHero — the ultimate destination for movie lovers. Are you ready to find your next  film? 🍿😎
 
 ## Table of Contents
 

@@ -8,8 +8,8 @@
 }
 
 .slider-item {
-    width: 100vh !important; ; /* Ensure each slide occupies full width */
-    height: 100vh !important; ; /* Ensure each slide occupies full height */
+    width: 100vh ;/* Ensure each slide occupies full width */
+    height: 100vh !important; /* Ensure each slide occupies full height */
     display: flex !important;
     justify-content: center;
     align-items: center;

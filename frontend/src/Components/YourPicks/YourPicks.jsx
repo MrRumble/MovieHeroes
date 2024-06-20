@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -51,9 +52,9 @@ const YourPicks = ({ data }) => {
             <Slider {...settings}>
                 {userMoviePicks.map((movie, index) => (
                     <div key={index} className="slider-item">
-                        <a key={index} href={`/movie_page/${movie.id}`} className={`movie-tile1 ${index + 1}`}>
+                        <Link to={`/movie_page/${movie.id}`} className={`movie-tile1 ${index + 1}`}>
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster-image" />
-                        </a>
+                        </Link>
                     </div>
                 ))}
             </Slider>

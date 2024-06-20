@@ -1,22 +1,43 @@
 .home {
-    max-width: 100%;
-    margin: 0 auto;
+    text-align: center;
     padding: 20px;
 }
 
 .slider-item {
+    position: relative;
+    height: 100vh; /* Make the slider item take the full height of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay to make text readable */
     padding: 20px;
-    text-align: center;
+    border-radius: 10px;
 }
 
-.poster-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.movie-title {
-    color: #edafed; /* Change text color as needed */
-    font-size: 1.5em;
-    margin-bottom: 20px; /* Add some space between the title and the poster */
+.star {
+    margin: 0 5px;
+}
+
+.final-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.final-button:hover {
+    background-color: #0056b3;
 }

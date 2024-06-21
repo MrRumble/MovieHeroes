@@ -5,6 +5,9 @@ In a world where endless streaming options leave viewers overwhelmed and indecis
 # WATCH A VIDEO DEMONSTRATION FROM THE TEAM
 [Download the video](Movie_Hero_Demo_Video.mp4)
 
+## WATCH A VIDEO DEMONSTRATION OF THE APP
+https://github.com/MrRumble/MovieHeroes/assets/144024793/b1ef3d6e-78af-4ade-9943-eedd63e55bf7
+
 
 ## Table of Contents
 

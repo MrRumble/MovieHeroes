@@ -5,7 +5,13 @@ In a world where endless streaming options leave viewers overwhelmed and indecis
 # WATCH A VIDEO DEMONSTRATION FROM THE TEAM
 [Download the video](Movie_Hero_Demo_Video.mp4)
 
+
 ## Table of Contents
+
+# DEMONSTRATION
+Here is a demonstration of the project in action from the team:
+
+[Watch the video](https://drive.google.com/file/d/11Q0dM1yV5phJiC1QQ6kSxfHyyAbXlrZ_/view?usp=drive_link)
 
 - [Installation](#installation)
 - [Usage](#usage)

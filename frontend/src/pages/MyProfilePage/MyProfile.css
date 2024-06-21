@@ -81,6 +81,8 @@
     background-color: #bf00bf !important;
     color: rgb(255, 255, 255);
     border: none;
+    padding: 0.5em;
+    border-radius: 5px;
   }
   
   .profile-detailsPage input[type="submit"]:hover, #selectAvatar:hover {

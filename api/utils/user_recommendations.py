@@ -20,12 +20,12 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
         return []
 
     top_rated_df = ratings_df[(ratings_df['rating'] == 5) | (ratings_df['rating'] == 4)]
-
+    print(top_rated_df)
     if top_rated_df.empty: #This is for the case when the user has rated films, but none at 4 or 5 star.
         return []
 
     most_recent_top_5 = top_rated_df.head(5) #Reduced to find similar movies to just 1, to improve speed (for now)
-
+    print(most_recent_top_5)
     most_recent_top_5_list = most_recent_top_5['movieId'].tolist()
 
     movies_set = set()
@@ -44,6 +44,8 @@ def recommend_movies_for_user(user_id, X, user_mapper, movie_mapper, movie_inv_m
 
     
         movies_set.update(similar_ids)
+        print("IDS OF RECOMENDED FILMS:", list(movies_set))
+    print("user id being used", user_id)
     return list(movies_set)
 
 

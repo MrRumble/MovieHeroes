@@ -6,7 +6,7 @@ In a world where endless streaming options leave viewers overwhelmed and indecis
 https://github.com/MrRumble/MovieHeroes/assets/144024793/b1ef3d6e-78af-4ade-9943-eedd63e55bf7
 
 # 🍿 PROJECT OVERVIEW 🎬
-
+(TO COME)
 ## THE TEAM
 [Anna Kontaratou](https://github.com/Anko21) -
 [James Rumble](https://github.com/MrRumble) -
@@ -83,9 +83,27 @@ We are all particularly proud of the aesthetic and style of our project, which h
 # 🍿 CHALLENGES 🎬
 
 ## TECH STACK
+We went with Python because it's widely used in the industry for data analysis and has plenty of tools and support available, especially for machine learning.
+
+Switching from PostgreSQL to MongoDB Cloud was a bit of a challenge as we adjusted to a new way of managing our database.
+
+Selva, Anna, and Adrian had just wrapped up their modules on JavaScript and React, while Manith and James had recently completed their Java module. This meant Manith and James had to swiftly switch gears and get up to speed/ learn JavaScript and React, while we all had to refresh our knowledge of Python syntax.
+
+These challenges pushed us to learn fast and adapt to new technologies throughout the project, a crucial skill for any aspiring software developer!
 
 ## MACHINE LEARNING
 
+We had initially set out to learn, implement, and deploy our own ML algorithm, which in hindsight was quite ambitious, especially considering none of us had prior experience in machine learning; we simply shared a fascination for the subject 😅. Adding to the challenge, we had only 10 days to complete our project. To make it feasible, we heavily relied on abstraction and chose a model that we believed would produce the best results.
+
 ## PERFORMACE ISSUES
 
+Our recommendation methods encountered significant slowness, sometimes taking up to 10+ seconds to execute.
+
+This was primarily due to inefficient coding practices and unnecessary repetition of iterations, along with excessive database queries in certain methods.
+
+Given the tight project timeline, we opted to address these issues as a "nice to have."
+
+Nevertheless, overcoming this hurdle provided valuable insights into the critical aspects of efficient code, refactoring, and debugging to pinpoint and resolve performance bottlenecks effectively.
+
 # 🍿 WHERE WOULD WE TAKE THE APP FROM HERE? 🎬
+(STILL TO COME)

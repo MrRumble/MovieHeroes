@@ -3,34 +3,34 @@
 In a world where endless streaming options leave viewers overwhelmed and indecisive, one website rises above the rest. Discover a realm where personalized recommendations and hidden gems are just a click away. Welcome to MovieHero — the ultimate destination for movie lovers. Are you ready to find your next  film? 🍿😎
 
 # Table of Contents
-1. [Watch a Video Demonstration](#watch-a-video-demonstration)
-2. [Project Overview](#project-overview)
-   - [Team](#team)
+- [Watch a Video Demonstration](#watch-a-video-demonstration)
+- [Project Overview](#project-overview)
+   - [Team](#The-Team)
    - [Tech Stack](#tech-stack)
    - [Machine Learning](#machine-learning)
    - [Final Touches](#final-touches)
-3. [Features](#features)
+- [Features](#features)
    - [Log In/Sign Up](#log-insign-up)
    - [My Profile Page](#my-profile-page)
    - [TMDB Trending Page](#tmdb-trending-page)
    - [Your Picks Page](#your-picks-page)
    - [Movie Page (Landing Page/Search Feature)](#movie-page-landing-pagesearch-feature)
    - [Styling](#styling)
-4. [What Went Well](#what-went-well)
+- [What Went Well](#what-went-well)
    - [Planning](#planning)
    - [Team Dynamics](#team-dynamics)
    - [Technical Implementation](#technical-implementation)
-5. [Challenges](#challenges)
+- [Challenges](#challenges)
    - [Tech Stack Challenges](#tech-stack-challenges)
    - [Machine Learning Challenges](#machine-learning-challenges)
    - [Performance Issues](#performance-issues)
-6. [Where Would We Take the App From Here?](#where-would-we-take-the-app-from-here)
-7. [Conclusion](#conclusion)
+- [Where Would We Take the App From Here?](#where-would-we-take-the-app-from-here)
+- [Conclusion](#conclusion)
 
-# 🍿 WATCH A VIDEO DEMONSTRATION FROM THE TEAM 🎬
-https://github.com/MrRumble/MovieHeroes/assets/144024793/b1ef3d6e-78af-4ade-9943-eedd63e55bf7
+## 🍿 WATCH A VIDEO DEMONSTRATION FROM THE TEAM 🎬 
+[Watch Video Demonstration](https://github.com/MrRumble/MovieHeroes/assets/144024793/b1ef3d6e-78af-4ade-9943-eedd63e55bf7)
 
-# 🍿 PROJECT OVERVIEW 🎬
+## 🍿 PROJECT OVERVIEW 🎬
 Our final project at Makers Academy Bootcamp was a chance to bring together everything we'd learned over the last 12 weeks. Before this, we tackled two full-stack application group projects: Makers B'n'B, our take on vacation rental platforms, and Acebook, our version of a social network.
 
 These projects were great practice and set us up perfectly for the big final project. The difference with this project was that we were able to start from scratch and had complete creative freedom to create anything we liked. As a group, we all agreed that we wanted to work on something related to Machine Learning—a subject none of us had experience in, but one that had piqued our interest.
@@ -44,20 +44,20 @@ With these resources at our disposal, we decided that the main purpose of our ap
 However the ultimate goal over the 10 days was to be able to answer "yes" to the question: **Can you use high-quality processes to build an extended project in a team?**
 
 
-## THE TEAM
-[Anna Kontaratou](https://github.com/Anko21) -
+### The Team
+[An#na Kontaratou](https://github.com/Anko21) -
 [James Rumble](https://github.com/MrRumble) -
 [Jet Siva](https://github.com/jetheesan) -
 [Manith Hettiarachchilage](https://github.com/manith-hetti) -
 [Selva Ramanathan](https://github.com/melva0333)
 
-## TECH STACK
+### TECH STACK
 (STILL TO ADD)
-# 🍿 MACHINE LEARNING 🎬
+## 🍿 MACHINE LEARNING 🎬
 
-## CHOSEN MODEL
+### CHOSEN MODEL
  (STILL TO ADD)
-## FINAL TOUCHES
+### FINAL TOUCHES
 - So we now have a smart movie recommendation model which generates a set of similar movies based on user viewing patterns.
 
 - We can now pull this all together on the user front. In our approach we identify and sort their top 5 rated movies, provided they are rated above 4 stars.
@@ -72,32 +72,35 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 
 ![Image](readme-media/ML-final-touches.png)
 
-# 🍿 FEATURES 🎬
-## LOG IN/SIGN UP
+## 🍿 FEATURES 🎬
+### LOG IN/SIGN UP
 (STILL TO ADD)
-## MY PROFILE PAGE
+### MY PROFILE PAGE
 (STILL TO ADD)
-## TMDB TRENDING PAGE
-This page was not originally part of the MVP but a "nice to have". This page used the TMDb Movie API. Which meant we had access to these beutiful movie poster and movie backdrop images and these movies would be updated in real-time. With some crafty css and the use of 'react-slick' and 'slick-carousel' we crafted this incredibley pleasing design, which went on to be the inspiration for the rest of the pages.  (see image below).
+### TMDB TRENDING PAGE
+This page was not originally part of the MVP but a "nice to have". 
+This page used the TMDb Movie API. Which meant we had access to these beutiful movie poster and movie backdrop images and these movies would be updated in real-time.
+ With some crafty css and the use of 'react-slick' and 'slick-carousel' we crafted this incredibley pleasing design, which went on to be the inspiration for the rest of the pages.  (see image below).
+
 ![TMDB Trending Pagfe](readme-media/css-example.png)
 
-## YOUR PICKS PAGE
+### YOUR PICKS PAGE
 The Creme-de-la-creme 😎
 (STILL TO ADD)
-## MOVIE PAGE (LANDING PAGE/ SEARCH FEATURE)
+### MOVIE PAGE (LANDING PAGE/ SEARCH FEATURE)
 (STILL TO ADD)
-## STYLING
+### STYLING
 (STILL TO ADD)
-# 🍿 WHAT WENT WELL 🎬
+## 🍿 WHAT WENT WELL 🎬
 
-## PLANNING
+### PLANNING
 We spent a lot of time planning everything, more than we did in previous projects. We understood the importance of planning well, knowing that not doing so can lead to problems down the line.
 
 From the beginning, we made sure everyone had clear diagrams of each page's design. This made it easy to divide tasks on the Trello board, and merging our work was usually smooth with few conflicts.
 
 Initially, we had a plan for another project on the first day. When we realized the MVP might not work out, we didn't panic. Instead, we started fresh on day two, showing our ability to adapt and keep moving forward.
 
-## TEAM DYNAMICS
+### TEAM DYNAMICS
 We stuck with our initial pairs throughout the project, even though it wasn't planned that way. It turned out to be really productive for us, and we kept rolling out features regularly.
 
 Whenever we got stuck or needed a second opinion, we always leaned on each other for advice.
@@ -106,7 +109,7 @@ We had a routine of morning stand-ups at 09:30, afternoon check-ins at 14:00, an
 
 Everyone pitched in equally, and we made sure everyone felt comfortable sharing their thoughts and ideas. This teamwork was key to our project's success.
 
-## TECHNICAL IMPLEMENTATION
+### TECHNICAL IMPLEMENTATION
 Using MongoDB cloud for a shared database proved very beneficial for us.
 
 It was especially useful because we had a large dataset, and having everything centralized in one place streamlined our workflow.
@@ -118,9 +121,9 @@ We successfully reached our MVP and even implemented some of our "nice to have" 
 We are all particularly proud of the aesthetic and style of our project, which has an eye-catching cinema vibe that we all love.
 
 
-# 🍿 CHALLENGES 🎬
+## 🍿 CHALLENGES 🎬
 
-## TECH STACK
+### TECH STACK
 We went with Python because it's widely used in the industry for data analysis and has plenty of tools and support available, especially for machine learning.
 
 Switching from PostgreSQL to MongoDB Cloud was a bit of a challenge as we adjusted to a new way of managing our database.
@@ -129,11 +132,11 @@ Selva, Anna, and Adrian had just wrapped up their modules on JavaScript and Reac
 
 These challenges pushed us to learn fast and adapt to new technologies throughout the project, a crucial skill for any aspiring software developer!
 
-## MACHINE LEARNING
+### MACHINE LEARNING
 
 We had initially set out to learn, implement, and deploy our own ML algorithm, which in hindsight was quite ambitious, especially considering none of us had prior experience in machine learning; we simply shared a fascination for the subject 😅. Adding to the challenge, we had only 10 days to complete our project. To make it feasible, we heavily relied on abstraction and chose a model that we believed would produce the best results.
 
-## PERFORMACE ISSUES
+### PERFORMACE ISSUES
 
 Our recommendation methods encountered significant slowness, sometimes taking up to 10+ seconds to execute.
 
@@ -143,10 +146,10 @@ Given the tight project timeline, we opted to address these issues as a "nice to
 
 Nevertheless, overcoming this hurdle provided valuable insights into the critical aspects of efficient code, refactoring, and debugging to pinpoint and resolve performance bottlenecks effectively.
 
-# 🍿 WHERE WOULD WE TAKE THE APP FROM HERE? 🎬
+## 🍿 WHERE WOULD WE TAKE THE APP FROM HERE? 🎬
 (STILL TO COME)
 
-# 🍿 CONCLUSION 🎬
+## 🍿 CONCLUSION 🎬
 The journey of our final project was both challenging and rewarding. Through collaborative effort, extensive research, and a shared passion for movies, we successfully developed a sophisticated movie recommendation system. This project not only allowed us to explore the complexities of Machine Learning but also demonstrated our capability to implement high-quality processes in team-based project development.
 
 In our final retro meeting after the two weeks we all agreed how much we had loved working with eachother and expressed hope to collaborate again in the future, even as we now pursue our separate career paths.

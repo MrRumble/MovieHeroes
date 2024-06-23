@@ -27,7 +27,7 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 [Selva Ramanathan](https://github.com/melva0333)
 
 ## TECH STACK
-
+(STILL TO ADD)
 # 🍿 MACHINE LEARNING 🎬
 
 ## CHOSEN MODEL
@@ -49,18 +49,18 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 
 # 🍿 FEATURES 🎬
 ## LOG IN/SIGN UP
-
+(STILL TO ADD)
 ## MY PROFILE PAGE
-
+(STILL TO ADD)
 ## TMDB TRENDING PAGE
-
+(STILL TO ADD)
 ## YOUR PICKS
 The Creme-de-la-creme 😎
-
+(STILL TO ADD)
 ## MOVIE PAGE (LANDING PAGE/ SEARCH FEATURE)
-
+(STILL TO ADD)
 ## STYLING
-
+(STILL TO ADD)
 # 🍿 WHAT WENT WELL 🎬
 
 ## PLANNING

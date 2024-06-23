@@ -6,7 +6,19 @@ In a world where endless streaming options leave viewers overwhelmed and indecis
 https://github.com/MrRumble/MovieHeroes/assets/144024793/b1ef3d6e-78af-4ade-9943-eedd63e55bf7
 
 # 🍿 PROJECT OVERVIEW 🎬
-(TO COME)
+Our final project at Makers Academy Bootcamp was a chance to bring together everything we'd learned over the last 12 weeks. Before this, we tackled two full-stack application group projects: Makers B'n'B, our take on vacation rental platforms, and Acebook, our version of a social network.
+
+These projects were great practice and set us up perfectly for the big final project. The difference with this project was that we were able to start from scratch and had complete creative freedom to create anything we liked. As a group, we all agreed that we wanted to work on something related to Machine Learning—a subject none of us had experience in, but one that had piqued our interest.
+
+Initially, we aimed to create a news article sentiment analyzer to track and monitor a population's sentiment on given buzzwords. However, we quickly discovered the limitations of the NewsAPI for free users. So, we went back to the drawing board and came up with the idea of a movie recommendation system. We all have a passion for movies, and after some research, we found that the available resources and data for this project were vast.
+
+We had free access to The Movie Database (TMDb), a comprehensive, user-driven online platform that provides detailed information on movies and TV shows, supported by community contributions and widely used APIs for developers. We also used MovieLens, a research-based online platform developed by GroupLens Research at the University of Minnesota, which provides personalized movie recommendations based on user ratings and preferences.
+
+With these resources at our disposal, we decided that the main purpose of our application would be to provide a smart Movie Recommendation system to our Movie Heroes users, based on the films they have previously rated on our app.
+
+However the ultimate goal over the 10 days was to be able to answer "yes" to the question: **Can you use high-quality processes to build an extended project in a team?**
+
+
 ## THE TEAM
 [Anna Kontaratou](https://github.com/Anko21) -
 [James Rumble](https://github.com/MrRumble) -
@@ -107,3 +119,11 @@ Nevertheless, overcoming this hurdle provided valuable insights into the critica
 
 # 🍿 WHERE WOULD WE TAKE THE APP FROM HERE? 🎬
 (STILL TO COME)
+
+# 🍿 CONCLUSION 🎬
+The journey of our final project was both challenging and rewarding. Through collaborative effort, extensive research, and a shared passion for movies, we successfully developed a sophisticated movie recommendation system. This project not only allowed us to explore the complexities of Machine Learning but also demonstrated our capability to implement high-quality processes in team-based project development.
+
+In our final retro meeting after the two weeks we all agreed how much we had loved working with eachother and expressed hope to collaborate again in the future, even as we now pursue our separate career paths.
+
+Ultimately, we all beleive we successfully answered **"YES!"** to the pivotal question: **Can you use high-quality processes to build an extended project in a team?**, and have showcased our readiness to take on complex tech projects in the future.
+

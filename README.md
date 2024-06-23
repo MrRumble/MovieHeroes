@@ -2,6 +2,31 @@
 
 In a world where endless streaming options leave viewers overwhelmed and indecisive, one website rises above the rest. Discover a realm where personalized recommendations and hidden gems are just a click away. Welcome to MovieHero — the ultimate destination for movie lovers. Are you ready to find your next  film? 🍿😎
 
+# Table of Contents
+1. [Watch a Video Demonstration](#watch-a-video-demonstration)
+2. [Project Overview](#project-overview)
+   - [Team](#team)
+   - [Tech Stack](#tech-stack)
+   - [Machine Learning](#machine-learning)
+   - [Final Touches](#final-touches)
+3. [Features](#features)
+   - [Log In/Sign Up](#log-insign-up)
+   - [My Profile Page](#my-profile-page)
+   - [TMDB Trending Page](#tmdb-trending-page)
+   - [Your Picks Page](#your-picks-page)
+   - [Movie Page (Landing Page/Search Feature)](#movie-page-landing-pagesearch-feature)
+   - [Styling](#styling)
+4. [What Went Well](#what-went-well)
+   - [Planning](#planning)
+   - [Team Dynamics](#team-dynamics)
+   - [Technical Implementation](#technical-implementation)
+5. [Challenges](#challenges)
+   - [Tech Stack Challenges](#tech-stack-challenges)
+   - [Machine Learning Challenges](#machine-learning-challenges)
+   - [Performance Issues](#performance-issues)
+6. [Where Would We Take the App From Here?](#where-would-we-take-the-app-from-here)
+7. [Conclusion](#conclusion)
+
 # 🍿 WATCH A VIDEO DEMONSTRATION FROM THE TEAM 🎬
 https://github.com/MrRumble/MovieHeroes/assets/144024793/b1ef3d6e-78af-4ade-9943-eedd63e55bf7
 
@@ -53,8 +78,10 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 ## MY PROFILE PAGE
 (STILL TO ADD)
 ## TMDB TRENDING PAGE
-(STILL TO ADD)
-## YOUR PICKS
+This page was not originally part of the MVP but a "nice to have". This page used the TMDb Movie API. Which meant we had access to these beutiful movie poster and movie backdrop images and these movies would be updated in real-time. With some crafty css and the use of 'react-slick' and 'slick-carousel' we crafted this incredibley pleasing design, which went on to be the inspiration for the rest of the pages.  (see image below).
+![TMDB Trending Pagfe](readme-media/css-example.png)
+
+## YOUR PICKS PAGE
 The Creme-de-la-creme 😎
 (STILL TO ADD)
 ## MOVIE PAGE (LANDING PAGE/ SEARCH FEATURE)
@@ -90,7 +117,6 @@ We successfully reached our MVP and even implemented some of our "nice to have" 
 
 We are all particularly proud of the aesthetic and style of our project, which has an eye-catching cinema vibe that we all love.
 
-![Image](readme-media/css-example.png)
 
 # 🍿 CHALLENGES 🎬
 

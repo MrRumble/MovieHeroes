@@ -45,7 +45,7 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 
 
 ### The Team
-[An#na Kontaratou](https://github.com/Anko21) -
+[Anna Kontaratou](https://github.com/Anko21) -
 [James Rumble](https://github.com/MrRumble) -
 [Jet Siva](https://github.com/jetheesan) -
 [Manith Hettiarachchilage](https://github.com/manith-hetti) -
@@ -128,7 +128,7 @@ We went with Python because it's widely used in the industry for data analysis a
 
 Switching from PostgreSQL to MongoDB Cloud was a bit of a challenge as we adjusted to a new way of managing our database.
 
-Selva, Anna, and Adrian had just wrapped up their modules on JavaScript and React, while Manith and James had recently completed their Java module. This meant Manith and James had to swiftly switch gears and get up to speed/ learn JavaScript and React, while we all had to refresh our knowledge of Python syntax.
+Selva, Anna, Jet, and Adrian had just wrapped up their modules on JavaScript and React, while Manith and James had recently completed their Java module. This meant Manith and James had to swiftly switch gears and get up to speed/ learn JavaScript and React, while we all had to refresh our knowledge of Python syntax.
 
 These challenges pushed us to learn fast and adapt to new technologies throughout the project, a crucial skill for any aspiring software developer!
 

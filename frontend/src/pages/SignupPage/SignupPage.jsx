@@ -29,10 +29,6 @@ const navigate = useNavigate();
         setEmail(event.target.value);
     };
 
-    const handleOnFocus = () => { 
-        setIsFocused(true); 
-    }; 
-
     const handleBlur = () => { 
         setIsFocused(false);
         const errors = handleErrors(password, email)

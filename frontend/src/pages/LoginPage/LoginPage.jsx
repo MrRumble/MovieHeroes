@@ -65,10 +65,12 @@ export const LoginPage = () => {
                         onChange={handlePasswordChange}
                     />
                     <input role="submit-button" id="submit" type="submit" value="login" />
-                    {errorMessage && <div className="error-message">{errorMessage}</div>}
+                    <div>
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    </div>
                 </form>
 
-                <div>
+                <div className="login-redirect">
                     <p> If you do not have an account</p>
                     <Link to="/signup">Signup</Link>
                 </div>

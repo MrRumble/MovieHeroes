@@ -52,7 +52,10 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 [Selva Ramanathan](https://github.com/melva0333)
 
 ### TECH STACK
-(STILL TO ADD)
+Technologies Used:
+- Backend: Python, Flask, Node.js, MongoDB Cloud
+- Frontend: JavaScript, React.js, HTML, CSS
+
 ## 🍿 MACHINE LEARNING 🎬
 
 ### CHOSEN MODEL
@@ -74,9 +77,31 @@ However the ultimate goal over the 10 days was to be able to answer "yes" to the
 
 ## 🍿 FEATURES 🎬
 ### LOG IN/SIGN UP
-(STILL TO ADD)
+
+User Authentication System:
+
+We developed a full-stack user authentication system, incorporating both sign-up and login functionalities with advanced validation and security measures.
+
+Sign-Up Form:
+- Implemented client-side validators for password complexity (e.g., minimum length, character requirements) and email format using JavaScript.
+- Integrated a backend check with Flask and MongoDB Cloud to ensure email uniqueness.
+- Used bcrypt for hashing and salting passwords before storing them in the database.
+
+![Image](readme-media/SignupForm.png)
+
+Login Form:
+- Implemented backend logic to authenticate users by checking email existence in the MongoDB Cloud database.
+- Verified hashed passwords stored in the database using bcrypt to ensure user authentication.
+
+![Image](readme-media/LoginForm.png)
+
+Security Measures:
+- Employed JWT (JSON Web Tokens) for session management, ensuring secure user sessions and API authentication.
+
 ### MY PROFILE PAGE
-(STILL TO ADD)
+Developed a user profile page in React with avatar selection functionality and dynamic updates using API calls.
+![TMDB Trending Pagfe](readme-media/MyProfilePage.png)
+
 ### TMDB TRENDING PAGE
 This page was not originally part of the MVP but a "nice to have". 
 This page used the TMDb Movie API. Which meant we had access to these beutiful movie poster and movie backdrop images and these movies would be updated in real-time.
